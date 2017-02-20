@@ -92,7 +92,15 @@ class mvc_controller {
 		$this->view_page($pagina);
    }
 
-
+/*7.-Modulo Acerca */
+ function acerca()
+   {
+		$pagina=$this->load_template('');	/*titulo de la pagina */	
+		
+		$html = $this->load_page('app/views/default/modules/m.acerca.php');
+		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+		$this->view_page($pagina);
+   }
 
 
 

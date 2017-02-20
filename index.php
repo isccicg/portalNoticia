@@ -33,6 +33,10 @@
 	{
 			$mvc->videos();	
 	}
+	else 	if( $_GET['action'] == 'acerca' ) //muestra  el modulo "historia de videos"
+	{
+			$mvc->acerca();	
+	}
 	else //Si no existe GET o POST -> muestra la pagina principal
 	{	
 		$mvc->principal();

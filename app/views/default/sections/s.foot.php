@@ -1,13 +1,7 @@
-  <script type="text/javascript" src="app/views/default/efectos/js/jquery.js"></script> 
-  <script type="text/javascript" src="app/views/default/efectos/js/jquery-ui.js"></script>
-  <script type="text/javascript" src="app/views/default/efectos/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="app/views/default/efectos/js/smoothscroll.js"></script> 
-  <script type="text/javascript" src="app/views/default/efectos/js/jquery.isotope.min.js"></script>
-  <script type="text/javascript" src="app/views/default/efectos/js/jquery.prettyPhoto.js"></script> 
-  <script type="text/javascript" src="app/views/default/efectos/js/jquery.parallax.js"></script> 
-  <script type="text/javascript" src="app/views/default/efectos/js/main.js"></script>
-  <script type="text/javascript" src="app/views/default/efectos/js/wowslider.js"></script>
-  <script type="text/javascript" src="app/views/default/efectos/js/script.js"></script>
-  <script type="text/javascript" src="app/views/default/efectos/js/index.js"></script>
-  <script type="text/javascript" src="app/views/default/efectos/js/animations.js"></script>
-  <script type="text/javascript" src="app/views/default/efectos/js/appear.min.js"></script> 
+    <script src="app/views/default/efectos/js/jquery.min.js"></script>
+    <script src="app/views/default/efectos/js/bootstrap.min.js"></script>
+    <script src="app/views/default/efectos/js/jquery.flexslider.js"></script>
+    <script src="app/views/default/efectos/js/jquery.inview.js"></script>
+    <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="app/views/default/efectos/js/script.js"></script>
+    
