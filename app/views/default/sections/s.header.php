@@ -44,6 +44,7 @@ document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYe
     <li><a href="index.php?action=cultura">Cultura</a></li>
     <li><a href="index.php?action=deportes">Deportes</a></li>
     <li><a href="index.php?action=videos">Videos</a></li>
+    <li><a data-toggle="modal" data-target="#login" href="#">Login</a></li>
   </ul>
 
   </header>

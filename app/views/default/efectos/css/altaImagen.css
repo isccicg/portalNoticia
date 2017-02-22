@@ -1,0 +1,15 @@
+#preview
+{
+	width: 242px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+	position: relative; 
+}
+#preview a
+{
+	position: absolute;
+	bottom: 10px;
+	left: 60px;
+	right: 60px;
+	display: none;
+}
