@@ -113,11 +113,13 @@ class mvc_controller {
 	*/
 	function load_template($title='Sin Titulo'){
 		$pagina = $this->load_page('app/views/default/page.php');
-		$head = $this->load_page('app/views/default/sections/s.head.php');		
+		$head = $this->load_page('app/views/default/sections/s.head.php');
+		$messages = $this->load_page('app/views/default/sections/s.messages.php');
 		$header = $this->load_page('app/views/default/sections/s.header.php');
 		$footer = $this->load_page('app/views/default/sections/s.footer.php');
 		$foot = $this->load_page('app/views/default/sections/s.foot.php');
 		$pagina = $this->replace_content('/\#HEAD\#/ms' ,$head , $pagina);
+		$pagina = $this->replace_content('/\#MESSAGES\#/ms' ,$messages , $pagina);
 		$pagina = $this->replace_content('/\#HEADER\#/ms',$header , $pagina);
 		$pagina = $this->replace_content('/\#FOOTER\#/ms',$footer , $pagina);
 		$pagina = $this->replace_content('/\#FOOT\#/ms',$foot , $pagina);
