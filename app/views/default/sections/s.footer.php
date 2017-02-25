@@ -1,12 +1,13 @@
 <!--footer-->
         <div id="footer">
-            <div class="container">
+          <!--  <div class="container">-->
                 <div class="row">
                     <div class="col-md-4">
                         <div class="footer-heading">
-                            <h3><span>about</span> us</h3>
-                            <p>To explore strange new worlds to seek out new life and new civilizations to boldly go where no man has gone before. It's time to play the music.</p>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <h3><span>Telefonos</span></h3>
+                            4555
+                            <br>
+                            asd
                         </div>
                     </div>
 
@@ -24,7 +25,13 @@
 
                     <div class="col-md-4">
                         <div class="footer-heading">
-                            <h3><span>follow</span> us on instagram</h3>
+                            <h3><span>Siguenos</span>: </h3>
+<br>
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><br>
+                                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+                                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>       
                             <div class="insta">
                                 <ul>
                                     <!-- <img src="images/footer/footer1.jpg" alt="">
@@ -39,7 +46,7 @@
                     </div>
 
                 </div>
-            </div>
+           <!-- </div> -->
         </div>
 
         <!--bottom footer-->
@@ -74,4 +81,4 @@
                     </div>
                 </div>
 
-        </div>
+      </div>
