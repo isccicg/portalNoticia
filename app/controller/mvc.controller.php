@@ -1,17 +1,44 @@
 <?php
+require_once('app/bd/conexion.php');
+class mvc_controller 
+{  
+	protected $acceso;
+	protected $conexion;
 
-/*require 'app/model/universitario.class.php';*/
-
-class mvc_controller {  
-	
+	public function __construct() 
+	{
+		$this->acceso = new accesoDB(); 
+	 	$this->conexion = $this->acceso->conDB();
+	}
    /*Modulos*/
    function principal()
    {
-		$pagina=$this->load_template('');	/*titulo de la pagina */	
-		
+   		$pagina=$this->load_template('');	/*titulo de la pagina */	
 		$html = $this->load_page('app/views/default/modules/m.principal.php');
 		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+   		$datos = array();
+   		$dateNow = date("Y-m-d");
+   		// $noticias = "No existen noticias";
+   		$consulta = "SELECT titulo,direccionnoticia,descripcion FROM tblnoticia n WHERE n.publicacion = '".$dateNow."'";
+   		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+   		if($resultado)
+   		{
+   			while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+   			{
+   				$datos[] = $datosNoticia;
+   			}
+   		}
+   		if(count($datos) > 0)
+   		{
+   			foreach ($datos as $value) 
+   			{
+   				$noticias .= "<div class='thumbnail'><div class='caption'><h4 class='pull-right'><img src='".$value["direccionnoticia"]."' alt='' style='width: 300px;height: 150px;'></h4><h4><a href='#'>".$value["titulo"]."</a></h4><p>".$value["descripcion"]."<a target='_blank' href='#'> Leer mas:</a></p></div></div>";
+   				
+   			}
+   		}
+		$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
 		$this->view_page($pagina);
+		$noticias = "No existen noticias";
    }
 
    /*1.- Modulo Politica */
@@ -162,6 +189,10 @@ class mvc_controller {
 	private function replace_content($in='/\#CONTENIDO\#/ms', $out,$pagina)
 	{
 		 return preg_replace($in, $out, $pagina);	 	
+	}
+	private function replace_contenido($in='/\#NOTICIAS\#/ms', $out,$pagina)
+	{
+		return preg_replace($in, $out, $pagina);	
 	}
 	
 }

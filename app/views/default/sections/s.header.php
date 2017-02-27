@@ -51,6 +51,7 @@ document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYe
 
                    <li><a href="index.php?action=cultura">Cultura</a></li>
                    <li><a href="index.php?action=deportes">Deportes</a></li>
+                 
 
                 
  <li class="dropdown">

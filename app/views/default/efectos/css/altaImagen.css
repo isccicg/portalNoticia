@@ -13,3 +13,7 @@
 	right: 60px;
 	display: none;
 }
+#preview img
+{
+	height: 190px;
+}

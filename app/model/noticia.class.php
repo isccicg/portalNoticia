@@ -44,7 +44,7 @@ class noticia
 			$imagen = $directorio."/imagenes/".$noticia["name"];
 			if (file_exists(utf8_decode($imagen))) 
 			{
-			    echo  "El noticia ". $noticia["name"]. " ya existe.\n<br>";
+			    echo  "La noticia ". $noticia["name"]. " ya existe.\n<br>";
 			}
 			else
 			{

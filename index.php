@@ -1,3 +1,16 @@
+ <?php
+session_start();
+if(!isset($_SESSION["usuario"])){?>
+<li><a data-toggle="modal" data-target="#login" href="#">Login</a></li>
+<?php
+}
+else
+{
+?>
+  <li><a data-toggle="modal" data-target="#modalAltaNoticia" href="#">Alta Noticia</a></li>
+<?php
+}
+?>
 <?php
 	require 'app/controller/mvc.controller.php';
 
