@@ -1,87 +1,109 @@
-<header id="home">
 
-    
+
+
+
+
+  <header id="home">
+
+    <section class="top-nav hidden-xs">
+      <div class="container">
+
+<div class="row">
+<br>
+          <div class="col-md-12" align="center">
+             <img class="slide-image" src="http://placehold.it/300x100" alt="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" align="center">
+             Periodismo con transparencia e inclusión social
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="top-left">
+
+              <ul>
+               <!-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>-->
+
+        <script>
+                var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+                var f=new Date();
+                document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+        </script> 
+
+
+              </ul>
+
+            </div>
+          </div>
+
+         <!-- <div class="col-md-6">
+            <div class="top-right">
+              <p>Location:<span>Main Street 2020, City 3000</span></p>
+            </div>
+          </div> -->
+
+        </div>
+      </div>
+    </section>
 
     <!--main-nav-->
 
+    <div id="main-nav">
 
-    <script>
-var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-var f=new Date();
-document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
-</script>
+      <nav class="navbar">
+        <div class="container">
 
+          <div class="navbar-header">
+            <a href="index.php" class="navbar-brand">Inicio</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ftheme">
+              <span class="sr-only">Toggle</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
 
-    <!-- Navigation -->
- 
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="row">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.php" >Principal</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                   <li><a href="index.php?action=politica">Politica</a></li>
+          <div class="navbar-collapse collapse" id="ftheme">
+
+            <ul class="nav navbar-nav navbar-right">
+               <li><a href="index.php?action=politica">Politica</a></li>
                    <li><a href="index.php?action=sociedad">Sociedad</a></li>
-                   <li><a href="index.php?action=sociedad">Opinion</a></li>
-
-
-
-         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opinión <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Articulos</a></li>
-            <li><a href="#">Columnas</a></li>
-           
-          </ul>
-        </li>
-
-
-
-
-
-
-
+                   <li class="dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opinión <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="index.php?action=articulos">Articulos</a></li>
+                          <li><a href="index.php?action=columnas">Columnas</a></li>           
+                        </ul>
+                   </li>
                    <li><a href="index.php?action=cultura">Cultura</a></li>
-                   <li><a href="index.php?action=deportes">Deportes</a></li>
-                 
-
-                
- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estudios de Opinión <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Monitores</a></li>
-            <li><a href="#">Encuestas</a></li>
-           
-          </ul>
-        </li>
-
-
-
-
+                   <li><a href="index.php?action=deportes">Deportes</a></li>                
+                   <li class="dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estudios de Opinión <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="index.php?action=monitores">Monitores</a></li>
+                          <li><a href="index.php?action=encuestas">Encuestas</a></li>
+                        </ul>
+                   </li>
                    <li><a href="index.php?action=videos">Videos</a></li>
-                </ul>
-            </div>
-            </div>
-            <!-- /.navbar-collapse -->
-     
+            </ul>
 
-<!--<ul>
-    <li><a href="index.php" >Principal</a></li>
-    <li><a href="index.php?action=politica">Politica</a></li>
-    <li><a href="index.php?action=sociedad">Sociedad</a></li>
-    <li><a href="index.php?action=cultura">Cultura</a></li>
-    <li><a href="index.php?action=deportes">Deportes</a></li>
-    <li><a href="index.php?action=videos">Videos</a></li>
-    <li><a data-toggle="modal" data-target="#login" href="#">Login</a></li>
-  </ul> -->
+          </div>
+
+         
+        </div>
+      </nav>
+    </div>
 
   </header>
+
+
 

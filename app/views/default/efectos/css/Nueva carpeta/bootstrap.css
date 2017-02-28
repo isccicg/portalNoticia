@@ -1583,11 +1583,11 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  padding-right: 0px;
+  padding-right: 0px; /*para el margen del container*/
   padding-left: 0px;
   margin-right: auto;
   margin-left: auto;
-      background-color: #f6fafb;
+  background-color: #f1f1f1;
 }
 @media (min-width: 768px) {
   .container {
@@ -5003,6 +5003,8 @@ a.badge:focus {
   }
 }
 .thumbnail {
+
+  height: 200px;
   display: block;
   padding: 4px;
   margin-bottom: 20px;

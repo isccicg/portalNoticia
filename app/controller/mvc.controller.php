@@ -11,6 +11,9 @@ class mvc_controller
 	 	$this->conexion = $this->acceso->conDB();
 	}
    /*Modulos*/
+
+
+   /*Modulo Principal*/
    function principal()
    {
    		$pagina=$this->load_template('');	/*titulo de la pagina */	
@@ -70,7 +73,7 @@ class mvc_controller
 		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 		$this->view_page($pagina);
    }
-/*3.1.-Modulo Columnas */
+/*3.2.-Modulo Columnas */
  function columnas()
    {
 		$pagina=$this->load_template('');	/*titulo de la pagina */	
@@ -100,12 +103,21 @@ class mvc_controller
 		$this->view_page($pagina);
    }
 
- /*6.-Modulo Estudios */
- function estudios()
+ /*6.1-Modulo Monitores */
+ function monitores()
    {
 		$pagina=$this->load_template('');	/*titulo de la pagina */	
 		
-		$html = $this->load_page('app/views/default/modules/m.deportes.php');
+		$html = $this->load_page('app/views/default/modules/m.monitores.php');
+		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+		$this->view_page($pagina);
+   }
+ /*6.2-Modulo Encuestas */
+ function encuestas()
+   {
+		$pagina=$this->load_template('');	/*titulo de la pagina */	
+		
+		$html = $this->load_page('app/views/default/modules/m.encuestas.php');
 		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 		$this->view_page($pagina);
    }
@@ -119,7 +131,7 @@ class mvc_controller
 		$this->view_page($pagina);
    }
 
-/*7.-Modulo Acerca */
+/*8.-Modulo Acerca */
  function acerca()
    {
 		$pagina=$this->load_template('');	/*titulo de la pagina */	

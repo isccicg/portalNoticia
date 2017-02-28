@@ -2,13 +2,23 @@
     <head>
    #HEAD#
     </head>
- <body > 
+ <body id="top" data-spy="scroll">  
     #MESSAGES#
+
+     #HEADER#
+
+    
+
+     <br>
+     <br>
+     <br>
+
     <div class="container">        
-        #HEADER#
+      
+
         #CONTENIDO#
         #FOOTER#
     </div> 
-        #FOOT#
+    #FOOT#        
     </body>   
 </html>
