@@ -5,7 +5,6 @@
  <body id="top" data-spy="scroll">  
     #MESSAGES#
 
-     #HEADER#
 
     
 
@@ -15,6 +14,7 @@
 
     <div class="container">        
       
+     #HEADER#
 
         #CONTENIDO#
         #FOOTER#

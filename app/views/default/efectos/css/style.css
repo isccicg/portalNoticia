@@ -114,7 +114,7 @@ textarea:focus {
 	;
 	color: #333;
 	line-height: 40px;
-	border-bottom: 1px solid #01b1d7;
+	border-bottom: 0px solid #01b1d7;
 }
 
 /*Top left Menu*/
@@ -170,8 +170,9 @@ textarea:focus {
 #main-nav.affix {
     position: fixed;
     top: 0;
-    width: 100%;
-    background-color: rgba(255,255,255,0.9);
+    width: initial; /*para el tamaño del la barra de menu*/
+    /* background-color: rgba(255,255,255,0.9)*/
+    background-color: rgba(0,0,0,0.1);
     color: #fff;
     z-index:10;
 	-moz-box-shadow: 0 1px 2px #ebebeb;
@@ -185,7 +186,7 @@ textarea:focus {
 }
 
 #main-nav .navbar-header a {
-	background-color: #01b1d7;
+	background-color: #00315a; /*btn de incio color */
 	color: #fff;
 }
 /*Toggle Menu*/
@@ -220,7 +221,7 @@ textarea:focus {
 
 #main-nav .navbar-nav>li>a:hover,
 #main-nav .navbar-nav>li.active>a {
-	color: #01b1d7;
+	color: #0b5ea5; /*color de las latras del menu*/
     background: none;
 }
 
@@ -1284,7 +1285,7 @@ textarea:focus {
 
 /*Bottom Footer*/
 #bottom-footer {
-	background-color: #282828;
+	background-color: #01121b;
 	padding: 20px 0;
 	color: #8e8e8e;
 }

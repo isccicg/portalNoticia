@@ -1587,7 +1587,7 @@ pre code {
   padding-left: 0px;
   margin-right: auto;
   margin-left: auto;
-      background-color: #f6fafb;
+      background-color: #f9f9f9;
 }
 @media (min-width: 768px) {
   .container {
@@ -4292,7 +4292,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
-    margin-left: -15px;
+    margin-left: 0px; /*modifico*/
   }
 }
 .navbar-toggle {
