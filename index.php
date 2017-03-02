@@ -1,13 +1,13 @@
  <?php
 session_start();
 if(!isset($_SESSION["usuario"])){?>
-<li><a data-toggle="modal" data-target="#login" href="#">Login</a></li>
+<li><a id="loginUsuario" href="#">Login</a></li>
 <?php
 }
 else
 {
 ?>
-  <li><a data-toggle="modal" data-target="#modalAltaNoticia" href="#">Alta Noticia</a></li>
+  <li><a id="altaNoticia" href="#">Alta Noticia</a></li>
 <?php
 }
 ?>

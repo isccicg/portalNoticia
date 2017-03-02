@@ -3,11 +3,8 @@
    #HEAD#
     </head>
  <body id="top" data-spy="scroll">  
-    #MESSAGES#
-
-
-    
-
+    <div id="messagges">
+    </div>
      <br>
      <br>
      <br>

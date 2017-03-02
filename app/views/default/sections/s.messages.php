@@ -1,3 +1,7 @@
+ <?php 
+ if($_POST["tipoModal"] == "login")
+ {
+?>
  <!-- Modal -->
 <div class="modal fade" id="login" role="dialog">
     <div class="modal-dialog modal-sm">
@@ -31,6 +35,11 @@
         </div>
     </div>
 </div> 
+<?php
+}
+if($_POST["tipoModal"] == "altaNoticia")
+{
+?>
 <div class="modal fade" id="modalAltaNoticia" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -51,22 +60,33 @@
                                 <option value="Politica">Politica</option>
                                 <option value="Sociedad">Sociedad</option>
                                 <option value="Articulos">Articulos</option>
+                                <option value="Columnas">Columnas</option>
+                                <option value="Monitores">Monitores</option>
+                                <option value="Encuestas">Encuestas</option>
                             </select>
                         </div>
-                        <br>
-                        <div class="form-group col-lg-2 col-lg-offset-1">
-                            <label class="radio-inline"><input type="radio" name="Datos[radioTipoArchivo]" value="Imagen" class="radioTipoArchivo" checked>Imagen</label>
+                        <br><br>
+                        <div class="text-center">
+                            <div class="form-group col-lg-2">
+                                <label class="radio-inline"><input type="radio" name="Datos[radioTipoArchivo]" value="Imagen" class="radioTipoArchivo" checked>Imagen</label>
+                            </div>
+                            <div class="form-group col-lg-2">
+                                <label class="radio-inline"><input type="radio" name="Datos[radioTipoArchivo]" value="Video" class="radioTipoArchivo">Video</label>
+                            </div>
+                            <div class="form-group col-lg-2">
+                                <label class="radio-inline"><input type="radio" name="Datos[radioTipoArchivo]" value="Link" class="radioTipoArchivo">Link</label>
+                            </div>
+                            <div class="form-group col-lg-2">
+                                <label class="radio-inline"><input type="radio" name="Datos[radioTipoArchivo]" value="Banner" class="radioTipoArchivo">Banner</label>
+                            </div>
                         </div>
-                        <div class="form-group col-lg-2">
-                            <label class="radio-inline"><input type="radio" name="Datos[radioTipoArchivo]" value="Video" class="radioTipoArchivo">Video</label>
-                        </div>
-                        <div class="form-group col-lg-2">
-                            <label class="radio-inline"><input type="radio" name="Datos[radioTipoArchivo]" value="Link" class="radioTipoArchivo">Link</label>
-                        </div>
+                    </div>
+                    <div class="agregarBanner text-center" data-toggle='buttons'>
+                        
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-12">
-                            <label for="idTxtTitulo">Titulo</label>
+                            <label for="idTxtTitulo" id="lblTitulo">Titulo</label>
                             <input type="text" name="Datos[tituloNoticia]" placeholder="Titulo" id="idTxtTitulo" class="form-control">
                         </div>
                     </div>  
@@ -97,3 +117,6 @@
         </div>
     </div>
 </div>
+<?php
+}
+?>

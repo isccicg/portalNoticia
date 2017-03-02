@@ -1,15 +1,22 @@
 <?php
-
+require_once('../bd/conexion.php');
 class noticia
 {
-	
+	protected $acceso;
+	protected $conexion;
+
+	public function __construct() 
+	{
+		$this->acceso = new accesoDB(); 
+	 	$this->conexion = $this->acceso->conDB();
+	}
 	public function altaNoticia($datos,$noticia)
 	{
-		$this->archivos($datos["cmbSeccion"],$noticia);
+		$this->archivos($datos,$noticia);
 	}
-	public function archivos($seccion,$noticia)
+	public function archivos($datos,$noticia)
 	{
-		$seccion = $seccion;
+		$seccion = $datos["cmbSeccion"];
 		$anio = date("Y");
 		$arrayMeses = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
 		$mes = date("m")-1;
@@ -48,14 +55,30 @@ class noticia
 			}
 			else
 			{
-				if (move_uploaded_file($noticia["tmp_name"],$imagen)) 
+				session_start();
+				if(isset($_SESSION["idUsuario"]))
 				{
-			        // Laimagen se subio correctamente..
-			    }
-			    else 
-			    {
-			    	echo "Error, su archivo no se pudo subir.";
-			    }
+					if (move_uploaded_file($noticia["tmp_name"],$imagen)) 
+					{
+				        // Laimagen se subio correctamente..
+				        $direccionNoticia = str_replace("..","app",$imagen);
+				        $tituloNoticia = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["tituloNoticia"]))));
+				        $descripcionNoticia = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["descripcionNoticia"]))));
+				        $contenidoNoticia = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["contenidoNoticia"]))));
+				        $tipoArchivo = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["radioTipoArchivo"]))));
+				        $fechaPublicacion = date("Y-m-d");
+				        $idUsuario = $_SESSION["idUsuario"];
+
+				        $consulta = "INSERT INTO tblnoticia(direccionnoticia,titulo,descripcion,contenidoNoticia,tipoarchivo,publicacion,idusuario) VALUES('".$direccionNoticia."','".$tituloNoticia."','".$descripcionNoticia."','".$contenidoNoticia."','".$tipoArchivo."','".$fechaPublicacion."',".$idUsuario.");"; 
+				        mysql_query($consulta,$this->conexion) or die (mysql_error());
+				    }
+				    else 
+				    {
+				    	echo "Error, su archivo no se pudo subir.";
+				    }
+				}
+				else
+					echo "Su session a caducado ingresar de nuevo!!..";
 			}
 		}
 

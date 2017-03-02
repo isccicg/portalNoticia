@@ -22,7 +22,7 @@ class mvc_controller
    		$datos = array();
    		$dateNow = date("Y-m-d");
    		// $noticias = "No existen noticias";
-   		$consulta = "SELECT titulo,direccionnoticia,descripcion FROM tblnoticia n WHERE n.publicacion = '".$dateNow."'";
+   		$consulta = "SELECT id,titulo,direccionnoticia,descripcion FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' ORDER BY id DESC";
    		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
    		if($resultado)
    		{
@@ -35,7 +35,7 @@ class mvc_controller
    		{
    			foreach ($datos as $value) 
    			{
-   				$noticias .= "<div class='thumbnail'><div class='caption'><h4 class='pull-right'><img src='".$value["direccionnoticia"]."' alt='' style='width: 300px;height: 150px;'></h4><h4><a href='#'>".$value["titulo"]."</a></h4><p>".$value["descripcion"]."<a target='_blank' href='#'> Leer mas:</a></p></div></div>";
+   				$noticias .= "<div class='thumbnail' style='width: 712px;height: 188px;'><div class='caption'><h4 class='pull-right'><img src='".$value["direccionnoticia"]."' alt='' style='width: 300px;height: 150px;'></h4><h4><a href='#'>".$value["titulo"]."</a></h4><p>".$value["descripcion"]."<a target='_blank' href='#'> Leer mas:</a></p></div></div>";
    				
    			}
    		}
