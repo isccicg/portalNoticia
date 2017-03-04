@@ -31,14 +31,41 @@ class mvc_controller
    				$datos[] = $datosNoticia;
    			}
    		}
-   		if(count($datos) > 0)
+   /*	if(count($datos) > 0)
    		{
    			foreach ($datos as $value) 
    			{
    				$noticias .= "<div class='thumbnail' style='width: 712px;height: 188px;'><div class='caption'><h4 class='pull-right'><img src='".$value["direccionnoticia"]."' alt='' style='width: 300px;height: 150px;'></h4><h4><a href='#'>".$value["titulo"]."</a></h4><p>".$value["descripcion"]."<a target='_blank' href='#'> Leer mas:</a></p></div></div>";
    				
    			}
-   		}
+   		} */
+if(count($datos) > 0)
+   		{
+   			foreach ($datos as $value) 
+   			{
+   				$noticias .= "<div class='row'>
+							  
+								  <div class='col-sm-6 col-md-8'>        
+										 <h4>
+								      <a href='#'>".$value["titulo"]."</a>
+								  </h4>
+								  <p>".$value["descripcion"]."
+								    <a target='_blank' href='#'>Leer mas:</a>
+								  </p>
+								  </div>
+								  <div class='col-sm-2 col-md-4'>
+									  <img src='".$value["direccionnoticia"]."'>
+								   </div>
+
+							   
+							</div>
+	
+	
+	 ";
+   				
+   			}
+   		} 
+   	
 		$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
 		$this->view_page($pagina);
 		$noticias = "No existen noticias";
@@ -51,8 +78,29 @@ class mvc_controller
 		
 		$html = $this->load_page('app/views/default/modules/m.politica.php');
 		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+$datos = array();
+   		$dateNow = date("Y-m-d");
+   		// $noticias = "No existen noticias";
+   		$consulta = "SELECT id,titulo,direccionnoticia,descripcion FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' ORDER BY id DESC";
+   		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+   		if($resultado)
+   		{
+   			while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+   			{
+   				$datos[] = $datosNoticia;
+   			}
+   		}
+   		if(count($datos) > 0)
+   		{
+   			foreach ($datos as $value) 
+   			{
+   				$noticias .= "<div class='thumbnail' style='width: 712px;height: 188px;'><div class='caption'><h4 class='pull-right'><img src='".$value["direccionnoticia"]."' alt='' style='width: 300px;height: 150px;'></h4><h4><a href='#'>".$value["titulo"]."</a></h4><p>".$value["descripcion"]."<a target='_blank' href='#'> Leer mas:</a></p></div></div>";
+   				
+   			}
+   		}
+		$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
 		$this->view_page($pagina);
-   }
+		$noticias = "No existen noticias";   }
 
    /*2.-Modulo Sociedad */
  function sociedad()

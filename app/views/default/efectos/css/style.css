@@ -170,7 +170,7 @@ textarea:focus {
 #main-nav.affix {
     position: fixed;
     top: 0;
-    width: initial; /*para el tamaño del la barra de menu*/
+    width: 100%; /*para el tamaño del la barra de menu*/
     /* background-color: rgba(255,255,255,0.9)*/
     background-color: rgba(0,0,0,0.1);
     color: #fff;

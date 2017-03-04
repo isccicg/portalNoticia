@@ -1,60 +1,22 @@
-
-
-
-
-
-  <header id="home">
+<header id="home">
 
     <section class="top-nav hidden-xs">
       <div class="container">
-
-<div class="row">
-<br>
-          <div class="col-md-12" align="center">
-             <img class="slide-image" src="http://placehold.it/300x100" alt="">
-          </div>
-        </div>
         <div class="row">
-          <div class="col-md-12" align="center">
-             Periodismo con transparencia e inclusión social
-          </div>
-        </div>
-
-
-
-        <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="top-left">
 
               <ul>
-               <!-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>-->
-
-
-
-
-
-        <script>
-                var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-                var f=new Date();
-                document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
-        </script> 
-
-
+                <li>
+                  <script>
+                    var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+                    var f = new Date();
+                    document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+                  </script> 
+                 </li>
               </ul>
-
             </div>
           </div>
-
-         <!-- <div class="col-md-6">
-            <div class="top-right">
-              <p>Location:<span>Main Street 2020, City 3000</span></p>
-            </div>
-          </div> -->
-
         </div>
       </div>
     </section>
@@ -79,35 +41,28 @@
           <div class="navbar-collapse collapse" id="ftheme">
 
             <ul class="nav navbar-nav navbar-right">
-               <li><a href="index.php?action=politica">Politica</a></li>
-                   <li><a href="index.php?action=sociedad">Sociedad</a></li>
-                   <li class="dropdown">
-                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opinión <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="index.php?action=articulos">Articulos</a></li>
-                          <li><a href="index.php?action=columnas">Columnas</a></li>           
-                        </ul>
-                   </li>
-                   <li><a href="index.php?action=cultura">Cultura</a></li>
-                   <li><a href="index.php?action=deportes">Deportes</a></li>                
-                   <li class="dropdown">
-                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estudios de Opinión <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="index.php?action=monitores">Monitores</a></li>
-                          <li><a href="index.php?action=encuestas">Encuestas</a></li>
-                        </ul>
-                   </li>
-                   <li><a href="index.php?action=videos">Videos</a></li>
+                        <li><a href="index.php?action=politica">Politica</a></li>
+                        <li><a href="index.php?action=sociedad">Sociedad</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opinión <span class="caret"></span></a>
+                            <ul class="dropdown-menu" >
+                                <li><a href="index.php?action=articulos">Articulos</a></li>
+                                <li><a href="index.php?action=columnas">Columnas</a></li>           
+                            </ul>
+                        </li>
+                        <li><a href="index.php?action=cultura">Cultura</a></li>
+                        <li><a href="index.php?action=deportes">Deportes</a></li>                
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estudios de Opinión <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="index.php?action=monitores">Monitoreo</a></li>
+                                <li><a href="index.php?action=encuestas">Encuestas</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="index.php?action=videos">Videos</a></li>
             </ul>
-
-          </div>
-
-         
-       
+          </div> 
+        </div>
       </nav>
     </div>
-
   </header>
-
-
-
