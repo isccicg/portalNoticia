@@ -11,3 +11,4 @@
 <link rel="stylesheet" href="app/views/default/efectos/css/font-awesome.min.css">
 <link rel="stylesheet" href="app/views/default/efectos/css/altaImagen.css">
 <link rel="stylesheet" href="app/views/default/efectos/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.css">

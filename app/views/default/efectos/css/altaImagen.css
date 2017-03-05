@@ -12,8 +12,13 @@
 	left: 60px;
 	right: 60px;
 	display: none;
+	z-index:1; 
 }
 #preview img
+{
+	height: 190px;
+}
+#preview video
 {
 	height: 190px;
 }
