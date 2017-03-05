@@ -53,7 +53,10 @@
 
 <br>
 <br>
-
+<br>
+<br>
+<br>
+<br>
     
 <div class="row">
       <div class="container">
@@ -72,7 +75,14 @@
                     BANNER    
                        <img class="slide-image" src="http://placehold.it/250x250" alt="">
                     </div>              
-           </div>          
+           </div> 
+
+           <div class="row">               
+                    <div class="col-sm-4 col-md-12" align="center">    
+                    BANNER    
+                       <img class="slide-image" src="http://placehold.it/250x250" alt="">
+                    </div>              
+           </div>            
         </div>
     </div>
 </div>

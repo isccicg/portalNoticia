@@ -2,6 +2,19 @@
 
     <section class="top-nav hidden-xs">
       <div class="container">
+      <div class="row">
+
+                <div class="col-md-12" align="center">
+                 <img src="app/views/default/efectos/images/logo.png">
+</div>
+        
+      </div>
+
+
+
+      <div class="row">
+        
+      </div>
         <div class="row">
           <div class="col-md-12">
             <div class="top-left">

@@ -47,14 +47,14 @@ if(count($datos) > 0)
    				if($value["tipoarchivo"] == "Imagen")
    				{
    					$noticias .= "<div class='row thumbnail'>
-							  		<div class='col-sm-6 col-md-8'>        
+							  		<div class='col-sm-6'>        
 										<h4><a href='#'>".$value["titulo"]."</a></h4>
 								  		<p>".$value["descripcion"]."
 								    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-type='image'>Leer mas:</a>
 								  		</p>
 								  	</div>
-								  	<div class='col-sm-2 col-md-4'>
-									  <img src='".$value["direccionnoticia"]."'>
+								  	<div class='col-sm-2 col-md-4' aling='center'>
+									  <img src='".$value["direccionnoticia"]."' width='275' height='150'>
 								   	</div>
 								</div>";
 				}
@@ -68,7 +68,7 @@ if(count($datos) > 0)
 								  		</p>
 								  	</div>
 								  	<div class='col-sm-2 col-md-4'>
-									  	<video class='col-sm-6 col-md-8'><source src='".$value["direccionnoticia"]."' type='video/mp4'>Su navegador no soporta el video
+									  	<video class='col-sm-6 col-md-8'><source src='".$value["direccionnoticia"]."' type='video/mp4' width='250' height='250'>Su navegador no soporta el video
 									  	</video>
 								   	</div>
 								</div>";
@@ -82,8 +82,8 @@ if(count($datos) > 0)
 								    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-remote='".$value["direccionnoticia"]."'>Leer mas:</a>
 								  		</p>
 								  	</div>
-								  	<div class='col-sm-2 col-md-4'>
-									  	<iframe class='embed-responsive-item' src='".$value["direccionnoticia"]."' allowfullscreen></iframe>
+								  	<div class='col-sm-2 col-md-4' aling='center'>
+									  	<iframe  src='".$value["direccionnoticia"]."' allowfullscreen width='275' height='150'></iframe>
 								   	</div>
 								</div>";
 	 			}
