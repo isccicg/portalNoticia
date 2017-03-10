@@ -13,196 +13,230 @@ class mvc_controller
    /*Modulos*/
 
 
-   /*Modulo Principal*/
-   function principal()
-   {
-   		$pagina=$this->load_template('');	/*titulo de la pagina */	
-		$html = $this->load_page('app/views/default/modules/m.principal.php');
-		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
-   		$datos = array();
-   		$dateNow = date("Y-m-d");
-   		// $noticias = "No existen noticias";
-   		$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' ORDER BY id DESC";
-   		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-   		if($resultado)
-   		{
-   			while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-   			{
-   				$datos[] = $datosNoticia;
-   			}
-   		}
-   /*	if(count($datos) > 0)
-   		{
-   			foreach ($datos as $value) 
-   			{
-   				$noticias .= "<div class='thumbnail' style='width: 712px;height: 188px;'><div class='caption'><h4 class='pull-right'><img src='".$value["direccionnoticia"]."' alt='' style='width: 300px;height: 150px;'></h4><h4><a href='#'>".$value["titulo"]."</a></h4><p>".$value["descripcion"]."<a target='_blank' href='#'> Leer mas:</a></p></div></div>";
-   				
-   			}
-   		} */
-if(count($datos) > 0)
-   		{
-
-   			foreach ($datos as $value) 
-   			{
-   				if($value["tipoarchivo"] == "Imagen")
-   				{
-   					$noticias .= "<div class='row thumbnail'>
-							  		<div class='col-sm-6'>        
-										<h4><a href='#'>".$value["titulo"]."</a></h4>
-								  		<p>".$value["descripcion"]."
-								    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-type='image'>Leer mas:</a>
-								  		</p>
-								  	</div>
-								  	<div class='col-sm-2 col-md-4' aling='center'>
-									  <img src='".$value["direccionnoticia"]."' width='275' height='150'>
-								   	</div>
-								</div>";
-				}
-	 			if($value["tipoarchivo"] == "Video")
-	 			{
-	 				$noticias .= "<div class='row thumbnail'>
-								  	<div class='col-sm-6'>        
-										<h4><a href='#'>".$value["titulo"]."</a></h4>
-								  		<p>".$value["descripcion"]."
-								    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-type='video'>Leer mas:</a>
-								  		</p>
-								  	</div>
-								  	<div class='col-sm-2 col-md-4'>
-									  	<video class='col-sm-6 col-md-8'><source src='".$value["direccionnoticia"]."' type='video/mp4' width='250' height='250'>Su navegador no soporta el video
-									  	</video>
-								   	</div>
-								</div>";
-	 			}
-	 			if($value["tipoarchivo"] == "Link")
-	 			{
-	 				$noticias .= "<div class='row thumbnail'>
-								  	<div class='col-sm-6'>        
-										<h4><a href='#'>".$value["titulo"]."</a></h4>
-								  		<p>".$value["descripcion"]."
-								    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-remote='".$value["direccionnoticia"]."'>Leer mas:</a>
-								  		</p>
-								  	</div>
-								  	<div class='col-sm-2 col-md-4' aling='center'>
-									  	<iframe  src='".$value["direccionnoticia"]."' allowfullscreen width='275' height='150'></iframe>
-								   	</div>
-								</div>";
-	 			}
-   				
-   			}
-   		} 
-   	
-		$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
-		$this->view_page($pagina);
-		$noticias = "No existen noticias";
-   }
+/*Modulo Principal*/
+function principal()
+{
+	$pagina=$this->load_template('');	/*titulo de la pagina */	
+	$html = $this->load_page('app/views/default/modules/m.principal.php');
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	$datos = array();
+   	$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' ORDER BY id DESC";
+	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+	if($resultado)
+	{
+		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+		{
+			$datos[] = $datosNoticia;
+		}
+	}
+/*	if(count($datos) > 0)
+	{
+		foreach ($datos as $value) 
+		{
+			$noticias .= "<div class='thumbnail' style='width: 712px;height: 188px;'><div class='caption'><h4 class='pull-right'><img src='".$value["direccionnoticia"]."' alt='' style='width: 300px;height: 150px;'></h4><h4><a href='#'>".$value["titulo"]."</a></h4><p>".$value["descripcion"]."<a target='_blank' href='#'> Leer mas:</a></p></div></div>";
+			
+		}
+	} */ 
+	$noticias = $this->cargarNoticias($datos);
+	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
+	$this->view_page($pagina);
+}
 
    /*1.- Modulo Politica */
- function politica()
-   {
-		$pagina=$this->load_template('');	/*titulo de la pagina */	
-		
-		$html = $this->load_page('app/views/default/modules/m.politica.php');
-		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
-$datos = array();
-   		$dateNow = date("Y-m-d");
-   		// $noticias = "No existen noticias";
-   		$consulta = "SELECT id,titulo,direccionnoticia,descripcion FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' ORDER BY id DESC";
-   		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-   		if($resultado)
-   		{
-   			while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-   			{
-   				$datos[] = $datosNoticia;
-   			}
-   		}
-   		if(count($datos) > 0)
-   		{
-   			foreach ($datos as $value) 
-   			{
-   				$noticias .= "<div class='thumbnail' style='width: 712px;height: 188px;'><div class='caption'><h4 class='pull-right'><img src='".$value["direccionnoticia"]."' alt='' style='width: 300px;height: 150px;'></h4><h4><a href='#'>".$value["titulo"]."</a></h4><p>".$value["descripcion"]."<a target='_blank' href='#'> Leer mas:</a></p></div></div>";
-   				
-   			}
-   		}
-		$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
-		$this->view_page($pagina);
-		$noticias = "No existen noticias";   }
+function politica()
+{
+	$pagina=$this->load_template('');	/*titulo de la pagina */	
+	$html = $this->load_page('app/views/default/modules/m.politica.php');
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	$datos = array();
+   	$dateNow = date("Y-m-d");
+		$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Politica' ORDER BY id DESC";
+		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+		if($resultado)
+		{
+			while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+			{
+				$datos[] = $datosNoticia;
+			}
+		}
+	$noticias = $this->cargarNoticias($datos);
+	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
+	$this->view_page($pagina);
+}
 
    /*2.-Modulo Sociedad */
- function sociedad()
-   {
-		$pagina=$this->load_template('');	/*titulo de la pagina */	
-		
-		$html = $this->load_page('app/views/default/modules/m.sociedad.php');
-		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
-		$this->view_page($pagina);
-   }
+function sociedad()
+{
+	$pagina=$this->load_template('');	/*titulo de la pagina */	
+	$html = $this->load_page('app/views/default/modules/m.sociedad.php');
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	$datos = array();
+	$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Sociedad' ORDER BY id DESC";
+	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+	if($resultado)
+	{
+		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+		{
+			$datos[] = $datosNoticia;
+		}
+	}
+	$noticias = $this->cargarNoticias($datos);
+	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$this->view_page($pagina);
+}
 
 /*3.1.-Modulo Articulos */
- function articulos()
-   {
-		$pagina=$this->load_template('');	/*titulo de la pagina */	
-		
-		$html = $this->load_page('app/views/default/modules/m.articulos.php');
-		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
-		$this->view_page($pagina);
-   }
+function articulos()
+{
+	$pagina=$this->load_template('');	/*titulo de la pagina */	
+	$html = $this->load_page('app/views/default/modules/m.articulos.php');
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	$datos = array();
+	$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Articulos' ORDER BY id DESC";
+	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+	if($resultado)
+	{
+		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+		{
+			$datos[] = $datosNoticia;
+		}
+	}
+	$noticias = $this->cargarNoticias($datos);
+	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$this->view_page($pagina);
+}
 /*3.2.-Modulo Columnas */
- function columnas()
-   {
-		$pagina=$this->load_template('');	/*titulo de la pagina */	
-		
-		$html = $this->load_page('app/views/default/modules/m.columnas.php');
-		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
-		$this->view_page($pagina);
-   }
+function columnas()
+{
+	$pagina=$this->load_template('');	/*titulo de la pagina */	
+	$html = $this->load_page('app/views/default/modules/m.columnas.php');
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	$datos = array();
+	$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Columnas' ORDER BY id DESC";
+	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+	if($resultado)
+	{
+		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+		{
+			$datos[] = $datosNoticia;
+		}
+	}
+	$noticias = $this->cargarNoticias($datos);
+	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$this->view_page($pagina);
+}
 
 /*4.-Modulo Cultura */
  function cultura()
-   {
-		$pagina=$this->load_template('');	/*titulo de la pagina */	
-		
-		$html = $this->load_page('app/views/default/modules/m.cultura.php');
-		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
-		$this->view_page($pagina);
-   }
+{
+	$pagina=$this->load_template('');	/*titulo de la pagina */	
+	$html = $this->load_page('app/views/default/modules/m.cultura.php');
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	$datos = array();
+	$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Cultura' ORDER BY id DESC";
+	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+	if($resultado)
+	{
+		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+		{
+			$datos[] = $datosNoticia;
+		}
+	}
+	$noticias = $this->cargarNoticias($datos);
+	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$this->view_page($pagina);
+}
 
 /*5.-Modulo Deportes */
- function deportes()
-   {
-		$pagina=$this->load_template('');	/*titulo de la pagina */	
-		
-		$html = $this->load_page('app/views/default/modules/m.deportes.php');
-		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
-		$this->view_page($pagina);
-   }
+function deportes()
+{
+	$pagina=$this->load_template('');	/*titulo de la pagina */	
+	$html = $this->load_page('app/views/default/modules/m.deportes.php');
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	$datos = array();
+	$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Deporte' ORDER BY id DESC";
+	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+	if($resultado)
+	{
+		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+		{
+			$datos[] = $datosNoticia;
+		}
+	}
+	$noticias = $this->cargarNoticias($datos);
+	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$this->view_page($pagina);
+}
 
  /*6.1-Modulo Monitores */
- function monitores()
-   {
-		$pagina=$this->load_template('');	/*titulo de la pagina */	
-		
-		$html = $this->load_page('app/views/default/modules/m.monitores.php');
-		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
-		$this->view_page($pagina);
-   }
+function monitores()
+{
+	$pagina=$this->load_template('');	/*titulo de la pagina */	
+	$html = $this->load_page('app/views/default/modules/m.monitores.php');
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	$datos = array();
+	$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Monitores' ORDER BY id DESC";
+	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+	if($resultado)
+	{
+		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+		{
+			$datos[] = $datosNoticia;
+		}
+	}
+	$noticias = $this->cargarNoticias($datos);
+	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$this->view_page($pagina);
+}
  /*6.2-Modulo Encuestas */
- function encuestas()
-   {
-		$pagina=$this->load_template('');	/*titulo de la pagina */	
-		
-		$html = $this->load_page('app/views/default/modules/m.encuestas.php');
-		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
-		$this->view_page($pagina);
-   }
+function encuestas()
+{
+	$pagina=$this->load_template('');	/*titulo de la pagina */	
+	$html = $this->load_page('app/views/default/modules/m.encuestas.php');
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	$datos = array();
+	$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Encuestas' ORDER BY id DESC";
+	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+	if($resultado)
+	{
+		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+		{
+			$datos[] = $datosNoticia;
+		}
+	}
+	$noticias = $this->cargarNoticias($datos);
+	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$this->view_page($pagina);
+}
 /*7.-Modulo Videos */
- function videos()
-   {
-		$pagina=$this->load_template('');	/*titulo de la pagina */	
-		
-		$html = $this->load_page('app/views/default/modules/m.videos.php');
-		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
-		$this->view_page($pagina);
-   }
+function videos()
+{
+	$pagina=$this->load_template('');	/*titulo de la pagina */	
+	$html = $this->load_page('app/views/default/modules/m.videos.php');
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	$datos = array();
+	$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND (n.tipoarchivo = 'Video' OR n.tipoarchivo = 'Link') ORDER BY id DESC";
+	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+	if($resultado)
+	{
+		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+		{
+			$datos[] = $datosNoticia;
+		}
+	}
+	$noticias = $this->cargarNoticias($datos);
+	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$this->view_page($pagina);
+}
 
 /*8.-Modulo Acerca */
  function acerca()
@@ -213,10 +247,64 @@ $datos = array();
 		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 		$this->view_page($pagina);
    }
+ function cargarNoticias($datos)
+ {
+ 	if(count($datos) > 0)
+	{
+		foreach ($datos as $value) 
+		{
+			if($value["tipoarchivo"] == "Imagen")
+			{
+				$noticias .= "<div class='row thumbnail'>
+					  		<div class='col-sm-6'>        
+								<h4><a href='#'>".$value["titulo"]."</a></h4>
+						  		<p>".$value["descripcion"]."
+						    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-type='image'>Leer mas:</a>
+						  		</p>
+						  	</div>
+						  	<div class='col-sm-2 col-md-4' aling='center'>
+							  <img src='".$value["direccionnoticia"]."' width='275' height='150'>
+						   	</div>
+						</div>";
+			}
+			if($value["tipoarchivo"] == "Video")
+			{
+				$noticias .= "<div class='row thumbnail'>
+						  	<div class='col-sm-6'>        
+								<h4><a href='#'>".$value["titulo"]."</a></h4>
+						  		<p>".$value["descripcion"]."
+						    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-type='video'>Leer mas:</a>
+						  		</p>
+						  	</div>
+						  	<div class='col-sm-2 col-md-4'>
+							  	<video class='col-sm-6 col-md-8'><source src='".$value["direccionnoticia"]."' type='video/mp4' width='250' height='250'>Su navegador no soporta el video
+							  	</video>
+						   	</div>
+						</div>";
+			}
+			if($value["tipoarchivo"] == "Link")
+			{
+				$noticias .= "<div class='row thumbnail'>
+						  	<div class='col-sm-6'>        
+								<h4><a href='#'>".$value["titulo"]."</a></h4>
+						  		<p>".$value["descripcion"]."
+						    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-remote='".$value["direccionnoticia"]."'>Leer mas:</a>
+						  		</p>
+						  	</div>
+						  	<div class='col-sm-2 col-md-4' aling='center'>
+							  	<iframe  src='".$value["direccionnoticia"]."?controls=0&showinfo=0' width='275' height='150'></iframe>
+						   	</div>
+						</div>";
+			}
+			
+		}
+		return $noticias;
+	}
+	else
+		return "No existen noticias";
 
+ }
 
-
-   
 	/* METODO QUE CARGA LAS PARTES PRINCIPALES DE LA PAGINA WEB
 	INPUT
 		$title | titulo en string del header

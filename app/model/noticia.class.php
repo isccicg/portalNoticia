@@ -113,7 +113,7 @@ class noticia
 			        $tipoArchivo = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["radioTipoArchivo"]))));
 			        $fechaPublicacion = date("Y-m-d");
 			        $idUsuario = $_SESSION["idUsuario"];
-					$consulta = "INSERT INTO tblnoticia(direccionnoticia,titulo,descripcion,contenidoNoticia,tipoarchivo,publicacion,idusuario) VALUES('".$direccionNoticia."','".$tituloNoticia."','".$descripcionNoticia."','".$contenidoNoticia."','".$tipoArchivo."','".$fechaPublicacion."',".$idUsuario.");"; 
+					$consulta = "INSERT INTO tblnoticia(seccion,direccionnoticia,titulo,descripcion,contenidoNoticia,tipoarchivo,publicacion,idusuario) VALUES('".$seccion."','".$direccionNoticia."','".$tituloNoticia."','".$descripcionNoticia."','".$contenidoNoticia."','".$tipoArchivo."','".$fechaPublicacion."',".$idUsuario.");"; 
 					mysql_query($consulta,$this->conexion) or die (mysql_error());
 				}
 			}

@@ -15,7 +15,7 @@ if(isset($_GET["accion"]))
 			if(!isset($_FILES["noticia"]))
 				$_FILES["noticia"] = "";
 			$resultado = $noticia->altaNoticia($_POST["Datos"],$_FILES["noticia"]);
-			// header("location:../../index.php");
+			header("location:../../index.php");
 		break;
 	}
 }
