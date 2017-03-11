@@ -1,4 +1,4 @@
-<header id="home">
+<header id="home" style="background-color: #fff">
 
     <section class="top-nav hidden-xs">
       <div class="container">

@@ -7,12 +7,13 @@
 
 /*General*/
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family:  serif;
 	font-size: 14px;
 	font-size: normal;
 	font-smooth: always;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
+	background-color: #f6f6f6;
 }
 
 a {
@@ -171,8 +172,7 @@ textarea:focus {
     position: fixed;
     top: 0;
     width: 100%; /*para el tamaño del la barra de menu*/
-    /* background-color: rgba(255,255,255,0.9)*/
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(255,255,255,0.9);    
     color: #fff;
     z-index:10;
 	-moz-box-shadow: 0 1px 2px #ebebeb;
@@ -203,7 +203,7 @@ textarea:focus {
 	margin-top: 10px;
 }
 #main-nav .navbar-right li > a {
-	font-family: 'Raleway', sans-serif;
+	font-family: serif;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 30px;
@@ -283,17 +283,20 @@ textarea:focus {
 
 #slider .caption span {
 	padding: 0 10px;
-	background-color: #01b1d7;
+	/*background-color: #01b1d7;*/
 	color: #fff;
 }
 
 #slider .caption p {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: serif;
 	font-weight: 700;
 	font-size: 24px;
-	font-style: italic;
+	/*font-style: italic;*/
 	margin-top: 30px;
-	color: #01b1d7;
+	color: #fff;
+
+		text-shadow: 2px 5px 10px #000;
+
 }
 
 #slider .caption button {
@@ -1218,7 +1221,7 @@ textarea:focus {
 }
 
 #footer .footer-heading {
-	font-family: 'Raleway', sans-serif;
+	font-family: serif;
 	font-weight: 700;
 	padding: 0 20px;
 	color: #fff;
@@ -1235,7 +1238,7 @@ textarea:focus {
 }
 
 #footer .footer-heading p {
-	font-family: 'Open Sans', sans-serif;
+	font-family: serif;
 	word-spacing: 3px;
 	font-weight: 300;
 	margin-top: 40px;

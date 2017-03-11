@@ -65,20 +65,20 @@
        </div>
         <div class="col-sm-4 col-md-4">        
            <div class="row">                
-                    <div class="col-sm-4 col-md-12" align="center">        
+                    <div class="col-sm-12 col-md-12" align="center">        
                        LO MAS VISTO
                         <img class="slide-image" src="http://placehold.it/400x300" alt="">                      
                     </div>              
            </div>
            <div class="row">               
-                    <div class="col-sm-4 col-md-12" align="center">    
+                    <div class="col-sm-12 col-md-12" align="center">    
                     BANNER    
                        <img class="slide-image" src="http://placehold.it/250x250" alt="">
                     </div>              
            </div> 
 
            <div class="row">               
-                    <div class="col-sm-4 col-md-12" align="center">    
+                    <div class="col-sm-12 col-md-12" align="center">    
                     BANNER    
                        <img class="slide-image" src="http://placehold.it/250x250" alt="">
                     </div>              

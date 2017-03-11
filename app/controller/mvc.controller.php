@@ -256,13 +256,13 @@ function videos()
 			if($value["tipoarchivo"] == "Imagen")
 			{
 				$noticias .= "<div class='row thumbnail'>
-					  		<div class='col-sm-6'>        
+					  		<div class='col-sm-8 col-md-8'>        
 								<h4><a href='#'>".$value["titulo"]."</a></h4>
 						  		<p>".$value["descripcion"]."
 						    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-type='image'>Leer mas:</a>
 						  		</p>
 						  	</div>
-						  	<div class='col-sm-2 col-md-4' aling='center'>
+						  	<div class='col-sm-4 col-md-4' aling='center'>
 							  <img src='".$value["direccionnoticia"]."' width='275' height='150'>
 						   	</div>
 						</div>";
@@ -270,13 +270,13 @@ function videos()
 			if($value["tipoarchivo"] == "Video")
 			{
 				$noticias .= "<div class='row thumbnail'>
-						  	<div class='col-sm-6'>        
+						  	<div class='col-sm-8 col-md-8'>        
 								<h4><a href='#'>".$value["titulo"]."</a></h4>
 						  		<p>".$value["descripcion"]."
 						    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-type='video'>Leer mas:</a>
 						  		</p>
 						  	</div>
-						  	<div class='col-sm-2 col-md-4'>
+						  	<div class='col-sm-4 col-md-4'>
 							  	<video class='col-sm-6 col-md-8'><source src='".$value["direccionnoticia"]."' type='video/mp4' width='250' height='250'>Su navegador no soporta el video
 							  	</video>
 						   	</div>
@@ -285,13 +285,13 @@ function videos()
 			if($value["tipoarchivo"] == "Link")
 			{
 				$noticias .= "<div class='row thumbnail'>
-						  	<div class='col-sm-6'>        
+						  	<div class='col-sm-7 col-md-7'>        
 								<h4><a href='#'>".$value["titulo"]."</a></h4>
 						  		<p>".$value["descripcion"]."
 						    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-remote='".$value["direccionnoticia"]."'>Leer mas:</a>
 						  		</p>
 						  	</div>
-						  	<div class='col-sm-2 col-md-4' aling='center'>
+						  	<div class='col-sm-5 col-md-5' aling='center'>
 							  	<iframe  src='".$value["direccionnoticia"]."?controls=0&showinfo=0' width='275' height='150'></iframe>
 						   	</div>
 						</div>";
