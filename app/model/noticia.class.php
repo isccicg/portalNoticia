@@ -16,8 +16,9 @@ class noticia
 	}
 	public function archivos($datos,$noticia)
 	{
+		
 		$bandera = 0;
-		$seccion = $datos["cmbSeccion"];
+		$seccion = isset($datos["cmbSeccion"]) ? $datos["cmbSeccion"] : "";
 		$anio = date("Y");
 		$arrayMeses = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
 		$mes = date("m")-1;
@@ -55,15 +56,15 @@ class noticia
 				switch ($datos["radioTipoArchivo"]) 
 				{
 					case 'Imagen':
-						$imagen = $directorio."/imagenes/".$noticia["name"];
+						$imagen = $directorio."/imagenes/".$noticia["name"]["noticia"];
 						if (file_exists(utf8_decode($imagen))) 
 						{
-						    echo  "La noticia ". $noticia["name"]. " ya existe.\n<br>";
+						    echo  "La noticia ". $noticia["name"]["noticia"]. " ya existe.\n<br>";
 						    $bandera = 1;
 						}
 						else
 						{
-							if (move_uploaded_file($noticia["tmp_name"],$imagen)) 
+							if (move_uploaded_file($noticia["tmp_name"]["noticia"],$imagen)) 
 							{
 						        // Laimagen se subio correctamente..
 						        $direccionNoticia = str_replace("..","app",$imagen);
@@ -75,15 +76,15 @@ class noticia
 						}
 						break;
 					case 'Video':
-						$video = $directorio."/videos/".$noticia["name"];
+						$video = $directorio."/videos/".$noticia["name"]["noticia"];
 						if (file_exists(utf8_decode($video))) 
 						{
-						    echo  "La noticia ". $noticia["name"]. " ya existe.\n<br>";
+						    echo  "La noticia ". $noticia["name"]["noticia"]. " ya existe.\n<br>";
 						    $bandera = 1;
 						}
 						else
 						{
-							if (move_uploaded_file($noticia["tmp_name"],$video)) 
+							if (move_uploaded_file($noticia["tmp_name"]["noticia"],$video)) 
 							{
 						        // El video se subio correctamente..
 						        $direccionNoticia = str_replace("..","app",$video);
@@ -98,7 +99,15 @@ class noticia
 						$direccionNoticia = str_replace("watch?v=","embed/",$datos["linkNoticia"]);
 						break;
 					case 'Banner':
-						
+						$bandera = 1;
+						if(isset($noticia["tmp_name"]["bannerSuperior"]))
+							move_uploaded_file($noticia["tmp_name"]["bannerSuperior"],"../banners/Superior.jpg");
+						if(isset($noticia["tmp_name"]["bannerInferior"]))
+							move_uploaded_file($noticia["tmp_name"]["bannerInferior"],"../banners/Inferior.jpg");
+						if(isset($noticia["tmp_name"]["bannerDS"]))
+							move_uploaded_file($noticia["tmp_name"]["bannerDS"],"../banners/DSuperior.jpg");
+						if(isset($noticia["tmp_name"]["bannerDI"]))
+							move_uploaded_file($noticia["tmp_name"]["bannerDI"],"../banners/DInferior.jpg");
 						break;
 					
 					default:
@@ -122,6 +131,28 @@ class noticia
 			echo "Su session a caducado ingresar de nuevo!!..";
 
 
+	}
+	public function eliminarNoticia($id)
+	{
+		$id = mysql_real_escape_string(strip_tags(stripslashes(trim($id))));
+		$consulta = "UPDATE tblnoticia n SET n.activo = 0 WHERE id  = ".$id;
+		$resultado = mysql_query($consulta) or die (mysql_error());
+		if($resultado)
+			return true;
+		else
+			return $resultado;
+	}
+	public function cargarDatosNoticia($id)
+	{
+		$id = mysql_real_escape_string(strip_tags(stripslashes(trim($id))));
+		$consulta = "SELECT * FROM tblnoticia n WHERE n.id = ".$id;
+		$resultado = mysql_query($consulta) or die (mysql_error());
+		if($resultado)
+			$datos = mysql_fetch_assoc($resultado);
+		else
+			$datos = $resultado;
+
+		return $datos;
 	}
 }
 ?>

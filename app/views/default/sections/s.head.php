@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans|Raleway" rel="stylesheet">
 <link rel="stylesheet" href="app/views/default/efectos/css/flexslider.css">
 <link rel="stylesheet" href="app/views/default/efectos/css/bootstrap.css">
-<!--<link rel="stylesheet" href="app/views/default/efectos/css/bootstrap.min.css">-->
+<!-- <link rel="stylesheet" href="app/views/default/efectos/css/bootstrap.min.css"> -->
 <link rel="stylesheet" href="app/views/default/efectos/css/font-awesome.min.css">
 <link rel="stylesheet" href="app/views/default/efectos/css/altaImagen.css">
 <link rel="stylesheet" href="app/views/default/efectos/css/style.css">

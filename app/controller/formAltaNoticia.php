@@ -12,11 +12,23 @@ if(isset($_GET["accion"]))
 		case "altaNoticia":
 			require_once("../model/noticia.class.php");
 			$noticia = new noticia();
-			if(!isset($_FILES["noticia"]))
-				$_FILES["noticia"] = "";
-			$resultado = $noticia->altaNoticia($_POST["Datos"],$_FILES["noticia"]);
+			if(!isset($_FILES["Datos"]))
+				$_FILES["Datos"] = "";
+			$resultado = $noticia->altaNoticia($_POST["Datos"],$_FILES["Datos"]);
 			header("location:../../index.php");
-		break;
+			break;
+		case "eliminarNoticia":
+			require_once("../model/noticia.class.php");
+			$noticia = new noticia();
+			$resultado = $noticia->eliminarNoticia($_POST["idNoticia"]);
+			echo $resultado;
+			break;
+		case "cargarDatosNoticia":
+			require_once("../model/noticia.class.php");
+			$noticia = new noticia();
+			$resultado = $noticia->cargarDatosNoticia($_POST["idNoticia"]);
+			echo json_encode($resultado);
+			break;
 	}
 }
 ?>
