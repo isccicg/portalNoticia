@@ -14,6 +14,29 @@ class mvc_controller
 
 
 /*Modulo Principal*/
+function login(){
+
+$pagina=$this->load_template('');	/*titulo de la pagina */	
+		
+		$html = $this->load_page('app/views/default/modules/m.login.php');
+		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+		$this->view_page($pagina);
+
+/*session_start();*/
+/*if(!isset($_SESSION["usuario"]))*/
+
+				$noticias = "Hola mundo";
+			
+
+
+			$pagina = $this->replace_contenidos('/\#NOTI\#/ms' ,$noticias, $pagina);
+	        $this->view_page($pagina);
+
+ 
+}
+
+
+
 function principal()
 {
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
@@ -380,6 +403,12 @@ function videos()
 		 return preg_replace($in, $out, $pagina);	 	
 	}
 	private function replace_contenido($in='/\#NOTICIAS\#/ms', $out,$pagina)
+	{
+		return preg_replace($in, $out, $pagina);	
+	}
+
+
+	private function replace_contenidos($in='/\#NOTI\#/ms', $out,$pagina)
 	{
 		return preg_replace($in, $out, $pagina);	
 	}

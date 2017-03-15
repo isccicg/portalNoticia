@@ -20,9 +20,9 @@
 
     				<div class="about-left">
     					<img src="app/views/default/efectos/images/about/about1.jpg" alt="">
-    				</div>
+    				</div> 
 
-    			</div>
+    			</div> 
 
     			<!--about wrapper right-->
     			<div class="col-xs-12 col-md-7">
@@ -34,11 +34,11 @@
     					<div class="about-right-boot">
     						<div class="about-right-wrapper">
 	    						<a href="#"><h3>Boost Your Business</h3></a>
-	    						<p>Paulina Lemus Hernández
-Lic. Luis Eduardo Torres Lazcano 
-Mtro. Eduardo Garduño Campa
-Mtro. Carlos Hugo González Calderón
-Escritor: Eduardo Osorio García</p>
+	    						<p>Paulina Lemus Hernández <br>
+                                Lic. Luis Eduardo Torres Lazcano 
+<br>Mtro. Eduardo Garduño Campa
+<br>Mtro. Carlos Hugo González Calderón
+<br>Escritor: Eduardo Osorio García</p>
     						</div>
     					</div>
 

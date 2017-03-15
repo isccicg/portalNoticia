@@ -58,6 +58,11 @@ else
 	{
 			$mvc->acerca();	
 	}
+
+	else 	if( $_GET['action'] == 'login' ) //muestra  el modulo "Acerca"
+	{
+			$mvc->login();	
+	}
 	else //Si no existe GET o POST -> muestra la pagina principal
 	{	
 		$mvc->principal();

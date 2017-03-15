@@ -15,29 +15,31 @@
 
         <ul class="slides">
             <li>
-                <img src="app/views/default/efectos/images/slider/slider1.jpg">
-
-                <div class="caption">
-                    <h2><span>an awesome website</span></h2> 
-                    <h2><span>html theme</span></h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <button class="btn">Read More</button>                 
-                </div>
+                <img src="app/views/default/efectos/images/slider/curso1.jpg">           
 
             </li>
             <li>
-                <img src="app/views/default/efectos/images/slider/slider2.jpg">
+                <img src="app/views/default/efectos/images/slider/curso2.jpg">             
 
-                <div class="caption">
-                    <h2><span>yet another slide</span></h2> 
-                    <h2><span>html theme</span></h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <button class="btn">Read More</button>                 
-                </div>
+            </li>
+             <li>
+                <img src="app/views/default/efectos/images/slider/curso3.jpg">           
 
             </li>
             <li>
-                <img src="app/views/default/efectos/images/slider/slider3.jpg">
+                <img src="app/views/default/efectos/images/slider/curso4.jpg">             
+
+            </li>
+             <li>
+                <img src="app/views/default/efectos/images/slider/curso5.jpg">           
+
+            </li>
+            <li>
+                <img src="app/views/default/efectos/images/slider/curso6.jpg">             
+
+            </li>
+           <!-- <li>
+                <img src="app/views/default/efectos/images/slider/imagencurso.jpg">
 
                 <div class="caption">
                     <h2><span>one more slide</span></h2> 
@@ -46,7 +48,7 @@
                     <button class="btn">Read More</button>                 
                 </div>
 
-            </li>
+            </li> -->
         </ul>
 
     </div>
