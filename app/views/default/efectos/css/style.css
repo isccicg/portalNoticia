@@ -435,7 +435,7 @@ textarea:focus {
 #about .about-right:before {
 	content: "";
     border: 8px solid #e5eef0;
-	width: 120%;
+	width: 100%;
     height: 100%;
     position: absolute;
     right: 0;
@@ -452,13 +452,14 @@ textarea:focus {
 	font-weight: 700;
 	padding-top: 100px;
 	text-transform: uppercase;
+	text-align: center;
 }
 
 #about .about-right-boot:before {
-	content: "\f080";
+	content: "\f0c0";
 	font-family: 'FontAwesome';
 	font-size: 45px;
-	padding: 65px 30px 0 0;
+	padding: 100px 30px 0 0;
 	float: left;
 	color: #01b1d7;
 }
@@ -490,13 +491,13 @@ textarea:focus {
 	content: "\f201";
 	font-family: 'FontAwesome';
 	font-size: 45px;
-	padding: 65px 30px 0 0;
+	padding: 100px 30px 0 0;
 	float: left;
 	color: #01b1d7;
 }
 
 #about .about-right-support:before {
-	content: "\f025";
+	content: "\f1d8";
 	font-family: 'FontAwesome';
 	font-size: 45px;
 	padding: 65px 30px 0 0;
@@ -504,6 +505,14 @@ textarea:focus {
 	color: #01b1d7;
 }
 
+#about .about-right-support2:before {
+	content: "\f1ae";
+	font-family: 'FontAwesome';
+	font-size: 45px;
+	padding: 65px 30px 0 0;
+	float: left;
+	color: #01b1d7;
+}
 /*Media*/
 @media screen and (min-width: 320px) and (max-width: 520px) {
 	#about {

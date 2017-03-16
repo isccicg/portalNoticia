@@ -69,7 +69,40 @@
         <div class="col-sm-4 col-md-4">        
            <div class="row">                
                     <div class="col-sm-12 col-md-12" align="center">        
-                        <img class="slide-image" src="http://placehold.it/400x300" alt="">                      
+                       <!-- <img class="slide-image" src="http://placehold.it/400x300" alt="">      -->
+
+
+  <h2>Más visto</h2>
+                                                                                        
+  <div class="table-responsive" style="background-color: #fff">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Hora</th>
+        <th>Noticia</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Anna</td>
+        <td>Pitt</td>
+       
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>Anna</td>
+        <td>Pitt</td>
+       
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+                
                     </div>              
            </div>
 

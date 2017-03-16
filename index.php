@@ -22,6 +22,10 @@ else
 	{	
 			$mvc->politica();	
 	}
+	else 	if( $_GET['action'] == 'economia' ) //muestra  el modulo "sociedad"
+	{
+			$mvc->economia();	
+	}
 	else 	if( $_GET['action'] == 'sociedad' ) //muestra  el modulo "sociedad"
 	{
 			$mvc->sociedad();	

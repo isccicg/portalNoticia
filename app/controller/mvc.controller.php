@@ -88,6 +88,34 @@ function politica()
 	$this->view_page($pagina);
 }
 
+   /*.-Modulo Economia  NUEVO*/
+
+function economia()
+{
+
+	
+
+	$pagina=$this->load_template('');	/*titulo de la pagina */	
+	$html = $this->load_page('app/views/default/modules/m.economia.php');
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	//$this->view_page($pagina);
+	/* poner nuevo a economia nuevo modulo*/
+	$datos = array();
+   	$dateNow = date("Y-m-d");
+		$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Politica' AND activo = 1 ORDER BY id DESC"; 
+		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+		if($resultado)
+		{
+			while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+			{
+				$datos[] = $datosNoticia;
+			}
+		}
+	$noticias = $this->cargarNoticias($datos);
+	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
+	$this->view_page($pagina);
+}
+
    /*2.-Modulo Sociedad */
 function sociedad()
 {

@@ -15,30 +15,31 @@
 
     	<!--about wrapper left-->
     	
-    		<div class="row">
-    			<div class="col-xs-12 hidden-sm col-md-5">
+    		<div class="row" >
+    		<!--	<div class="col-xs-12 hidden-sm col-md-5">
 
     				<div class="about-left">
     					<img src="app/views/default/efectos/images/about/about1.jpg" alt="">
-    				</div> 
+    				</div>  
 
-    			</div> 
+    			</div> -->
 
     			<!--about wrapper right-->
-    			<div class="col-xs-12 col-md-7">
+    			<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3" >
     				<div class="about-right">
-    					<div class="about-right-heading">
+    				<!--	<div class="about-right-heading">
     						<h1>Fundadores y colaboradores</h1>
-    					</div>
-  
+    					</div> -->
+
     					<div class="about-right-boot">
+
     						<div class="about-right-wrapper">
-	    						<a href="#"><h3>Boost Your Business</h3></a>
-	    						<p>Paulina Lemus Hernández <br>
-                                Lic. Luis Eduardo Torres Lazcano 
-<br>Mtro. Eduardo Garduño Campa
-<br>Mtro. Carlos Hugo González Calderón
-<br>Escritor: Eduardo Osorio García</p>
+	    						<a href="#"><h3>Fundadores y colaboradores</h3></a>
+	    						<p>Lic. Paulina Lemus Hernández <br>
+                                Lic. Luis Eduardo Torres Lazcano   <br>
+Mtro. Eduardo Garduño Campa <br>
+Mtro. Carlos Hugo González Calderón <br>
+Escritor: Eduardo Osorio García</p>
     						</div>
     					</div>
 
@@ -56,7 +57,7 @@
     						</div>
     					</div>
 
-                        <div class="about-right-support">
+                        <div class="about-right-support2">
                             <div class="about-right-wrapper">
                                 <a href="#"><h3>Valores</h3></a>
                                 <p> Responsabilidad, Integridad, Transparencia  e Inclusión.</p>

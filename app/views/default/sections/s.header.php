@@ -55,6 +55,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                         <li><a href="index.php?action=politica">Politica</a></li>
+                        <li><a href="index.php?action=economia">Economia</a></li>
                         <li><a href="index.php?action=sociedad">Sociedad</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opinión <span class="caret"></span></a>
@@ -64,6 +65,7 @@
                             </ul>
                         </li>
                         <li><a href="index.php?action=cultura">Cultura</a></li>
+                     
                         <li><a href="index.php?action=deportes">Deportes</a></li>                
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estudios de Opinión <span class="caret"></span></a>
