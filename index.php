@@ -1,4 +1,4 @@
- <?php
+ <?php /*
 session_start();
 if(!isset($_SESSION["usuario"])){?>
 <li><a id="loginUsuario" href="#">Login</a></li>
@@ -10,7 +10,7 @@ else
   <li><a id="altaNoticia" href="#">Alta Noticia</a></li>
 <?php
 }
-?>
+*/?> 
 <?php
 	require 'app/controller/mvc.controller.php';
 
