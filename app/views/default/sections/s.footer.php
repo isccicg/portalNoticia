@@ -14,7 +14,7 @@
 
                     <div class="col-md-4 col-md-offset-4">
                         <div class="footer-heading">
-                            <h3><span>Siguenos</span> :</h3>
+                            <h3><span>Síguenos</span> :</h3>
                             <div class="insta">
                                 <ul> 
                                    <a href="https://www.facebook.com/Siga-Comunicaciones-389314814779078/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -39,7 +39,7 @@
                         <div class="footer-left">
                         Calle 5 de Mayo #742-B, Col. CFE CP 50160 Toluca, Edo. Méx.
                         <br>
-                            &copy; SIGA Comunicaciones.
+                            &copy; SIGA Comunicación.
                          Algunos derechos reservados © 2017
                         </div>
                     </div>

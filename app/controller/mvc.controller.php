@@ -43,8 +43,22 @@ function principal()
 	$html = $this->load_page('app/views/default/modules/m.principal.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
-   	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND activo = 1 ORDER BY id DESC";
+   	//$dateNow = date("Y-m-d");
+
+	/*$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND activo = 1 ORDER BY id DESC"; */
+
+  /* $consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$elapsedDate."' AND activo = 1 ORDER BY id DESC"; */
+
+   $consulta =  "SELECT *
+				FROM tblnoticia
+				WHERE publicacion BETWEEN 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				AND
+				(SELECT CURDATE())
+				AND activo = 1
+				order by id desc";
+
+
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 	if($resultado)
 	{

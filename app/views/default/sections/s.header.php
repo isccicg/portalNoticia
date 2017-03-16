@@ -54,13 +54,13 @@
           <div class="navbar-collapse collapse" id="ftheme">
 
             <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.php?action=politica">Politica</a></li>
-                        <li><a href="index.php?action=economia">Economia</a></li>
+                        <li><a href="index.php?action=politica">Política</a></li>
+                        <li><a href="index.php?action=economia">Economía</a></li>
                         <li><a href="index.php?action=sociedad">Sociedad</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opinión <span class="caret"></span></a>
                             <ul class="dropdown-menu" >
-                                <li><a href="index.php?action=articulos">Articulos</a></li>
+                                <li><a href="index.php?action=articulos">Artículos</a></li>
                                 <li><a href="index.php?action=columnas">Columnas</a></li>           
                             </ul>
                         </li>

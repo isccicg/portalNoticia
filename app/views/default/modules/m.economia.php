@@ -4,7 +4,7 @@
 <div class="row">
           <div class="col-xs-12 col-md-6 col-md-offset-1">
             <div class="service-heading">
-              <h2>Economia</h2> 
+              <h2>Economía</h2> 
             </div>
           </div>
 </div>
