@@ -17,7 +17,7 @@
                             <h3><span>Síguenos</span> :</h3>
                             <div class="insta">
                                 <ul> 
-                                   <a href="https://www.facebook.com/Siga-Comunicaciones-389314814779078/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                   <a href="https://www.facebook.com/sigacomumicacion/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                    <a href="https://twitter.com/Sigacomunica"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 <br>
 <br>
