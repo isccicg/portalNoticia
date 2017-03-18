@@ -2,7 +2,7 @@
 <div class="row">
 
  <div class="col-md-12" align="center">
-    <img class="slide-image" src="app/banners/Superior.jpg" alt="">
+    <img src="app/banners/Superior.jpg" alt="">
         <!-- <img class="slide-image" src="http://placehold.it/750x90" alt=""> -->
  </div>
  

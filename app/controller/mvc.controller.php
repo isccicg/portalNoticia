@@ -315,6 +315,7 @@ function videos()
  function cargarNoticias($datos)
  {
  	session_start();
+ 	$clave = "STQzba1mggNz";
  	if(count($datos) > 0)
 	{
 		foreach ($datos as $value) 
@@ -333,13 +334,12 @@ function videos()
 			}
 			if($value["tipoarchivo"] == "Imagen")
 			{
+			
 				$noticias .= "<div class='row thumbnail'>
 								".$btnsEdit."
-					  		<div class='col-sm-8 col-md-8'>        
-								<h4><a href='#'>".$value["titulo"]."</a></h4>
-						  		<p>".$value["descripcion"]."
-						    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-type='image' data-width='640'>Leer mas:</a>
-						  		</p>
+					  		<div class='col-sm-8 col-md-8'>
+								<h4><a href='index.php?action=noticia&noticia=".md5($clave.$value["id"])."-".$value["titulo"]."'>".$value["titulo"]."</a></h4>
+						  		<p>".$value["descripcion"]."</p>
 						  	</div>
 						  	<div class='col-sm-4 col-md-4' aling='center'>
 							  <img src='".$value["direccionnoticia"]."' style='width: 100%;height: 27%;'>
@@ -351,10 +351,8 @@ function videos()
 				$noticias .= "<div class='row thumbnail'>
 								".$btnsEdit."
 						  	<div class='col-sm-8 col-md-8'>        
-								<h4><a href='#'>".$value["titulo"]."</a></h4>
-						  		<p>".$value["descripcion"]."
-						    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-type='video' data-width='640'>Leer mas:</a>
-						  		</p>
+								<h4><a href='index.php?action=noticia&noticia=".md5($clave.$value["id"])."-".$value["titulo"]."'>".$value["titulo"]."</a></h4>
+						  		<p>".$value["descripcion"]."</p>
 						  	</div>
 						  	<div class='col-sm-4 col-md-4'>
 							  	<video class='col-sm-2 col-md-8' style='width: 100%;height: auto;'><source src='".$value["direccionnoticia"]."' type='video/mp4' width='250' height='250'>Su navegador no soporta el video
@@ -367,10 +365,8 @@ function videos()
 				$noticias .= "<div class='row thumbnail'>
 								".$btnsEdit."
 						  	<div class='col-sm-7 col-md-7'>        
-								<h4><a href='#'>".$value["titulo"]."</a></h4>
-						  		<p>".$value["descripcion"]."
-						    		<a href='".$value["direccionnoticia"]."' data-title='".$value["titulo"]."' data-footer='".$value["contenidoNoticia"]."' data-toggle='lightbox' data-remote='".$value["direccionnoticia"]."' data-width='640'>Leer mas:</a>
-						  		</p>
+								<h4><a href='index.php?action=noticia&noticia=".md5($clave.$value["id"])."-".$value["titulo"]."'>".$value["titulo"]."</a></h4>
+						  		<p>".$value["descripcion"]."</p>
 						  	</div>
 						  	<div class='col-sm-5 col-md-5' aling='center'>
 							  	<iframe class='embed-responsive-item' src='".$value["direccionnoticia"]."?controls=0&showinfo=0' style='width: 100%;height: auto;'></iframe>
@@ -384,6 +380,21 @@ function videos()
 	else
 		return "No se ha publicado ninguna noticia por el momento ¡Gracias!";
 
+ }
+ function noticia($idNoticia)
+ {
+
+	$idNoticia = explode("-", $idNoticia);
+	$id = mysql_real_escape_string(strip_tags(stripslashes(trim($idNoticia[0]))));
+	$consulta = "SELECT * FROM `tblnoticia` WHERE MD5(CONCAT('STQzba1mggNz',id)) = '".$id."'";
+	$resultado = mysql_query($consulta) or die (mysql_error());
+	if($resultado)
+		$datos = mysql_fetch_assoc($resultado);
+	else
+		$datos = $resultado;
+
+	echo "<img class='slide-image' src='".$datos["direccionnoticia"]."' alt=''>";
+	
  }
 
 	/* METODO QUE CARGA LAS PARTES PRINCIPALES DE LA PAGINA WEB

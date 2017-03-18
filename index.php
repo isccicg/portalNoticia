@@ -67,6 +67,10 @@ else
 	{
 			$mvc->login();	
 	}
+	else    if( $_GET['action'] == 'noticia' ) //muestra  el modulo "noticia"
+	{
+			$mvc->noticia($_GET["noticia"]);	
+	}
 	else //Si no existe GET o POST -> muestra la pagina principal
 	{	
 		$mvc->principal();

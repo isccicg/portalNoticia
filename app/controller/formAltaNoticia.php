@@ -15,7 +15,7 @@ if(isset($_GET["accion"]))
 			if(!isset($_FILES["Datos"]))
 				$_FILES["Datos"] = "";
 			$resultado = $noticia->altaNoticia($_POST["Datos"],$_FILES["Datos"]);
-			header("location:../../index.php");
+			header("location:../../login.php");
 			break;
 		case "eliminarNoticia":
 			require_once("../model/noticia.class.php");
@@ -29,6 +29,10 @@ if(isset($_GET["accion"]))
 			$resultado = $noticia->cargarDatosNoticia($_POST["idNoticia"]);
 			echo json_encode($resultado);
 			break;
+		default:
+			header("location:../../index.php");
+			break;
+
 	}
 }
 ?>
