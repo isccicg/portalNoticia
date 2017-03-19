@@ -25,7 +25,7 @@ $pagina=$this->load_template('');	/*titulo de la pagina */
 /*session_start();*/
 /*if(!isset($_SESSION["usuario"]))*/
 
-				$noticias = "Hola mundo";
+				$noticias = "Hola mundo desde controler";
 			
 
 
@@ -52,7 +52,7 @@ function principal()
    $consulta =  "SELECT *
 				FROM tblnoticia
 				WHERE publicacion BETWEEN 
-				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -3 DAY)) 
 				AND
 				(SELECT CURDATE())
 				AND activo = 1
@@ -87,8 +87,21 @@ function politica()
 	$html = $this->load_page('app/views/default/modules/m.politica.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
-   	$dateNow = date("Y-m-d");
-		$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Politica' AND activo = 1 ORDER BY id DESC";
+
+  $consulta =  "SELECT *
+				FROM tblnoticia
+				WHERE publicacion BETWEEN 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				AND
+				(SELECT CURDATE())
+				AND SECCION = 'Politica'
+				AND activo = 1
+				order by id desc";
+
+
+
+   /*	$dateNow = date("Y-m-d");
+		$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Politica' AND activo = 1 ORDER BY id DESC"; */
 		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 		if($resultado)
 		{
@@ -114,9 +127,20 @@ function economia()
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	//$this->view_page($pagina);
 	/* poner nuevo a economia nuevo modulo*/
-	$datos = array();
+
+ $consulta =  "SELECT *
+				FROM tblnoticia
+				WHERE publicacion BETWEEN 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				AND
+				(SELECT CURDATE())
+				AND SECCION = 'Economia'
+				AND activo = 1
+				order by id desc";
+
+	/*$datos = array();
    	$dateNow = date("Y-m-d");
-		$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Politica' AND activo = 1 ORDER BY id DESC"; 
+		$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Economia' AND activo = 1 ORDER BY id DESC"; */
 		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 		if($resultado)
 		{
@@ -137,8 +161,17 @@ function sociedad()
 	$html = $this->load_page('app/views/default/modules/m.sociedad.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
-	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Sociedad' AND activo = 1 ORDER BY id DESC";
+	 $consulta =  "SELECT *
+				FROM tblnoticia
+				WHERE publicacion BETWEEN 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				AND
+				(SELECT CURDATE())
+				AND SECCION = 'Sociedad'
+				AND activo = 1
+				order by id desc";
+	/*$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Sociedad' AND activo = 1 ORDER BY id DESC"; */
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 	if($resultado)
 	{
@@ -159,8 +192,17 @@ function articulos()
 	$html = $this->load_page('app/views/default/modules/m.articulos.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
-	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Articulos' AND activo = 1 ORDER BY id DESC";
+	 $consulta =  "SELECT *
+				FROM tblnoticia
+				WHERE publicacion BETWEEN 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				AND
+				(SELECT CURDATE())
+				AND SECCION = 'Articulos'
+				AND activo = 1
+				order by id desc";
+	/*$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Articulos' AND activo = 1 ORDER BY id DESC";*/
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 	if($resultado)
 	{
@@ -181,7 +223,16 @@ function columnas()
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
 	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Columnas' AND activo = 1 ORDER BY id DESC";
+	 $consulta =  "SELECT *
+				FROM tblnoticia
+				WHERE publicacion BETWEEN 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				AND
+				(SELECT CURDATE())
+				AND SECCION = 'Columnas'
+				AND activo = 1
+				order by id desc";
+	/*$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Columnas' AND activo = 1 ORDER BY id DESC"; */
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 	if($resultado)
 	{
@@ -203,7 +254,16 @@ function columnas()
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
 	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Cultura' AND activo = 1 ORDER BY id DESC";
+	 $consulta =  "SELECT *
+				FROM tblnoticia
+				WHERE publicacion BETWEEN 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				AND
+				(SELECT CURDATE())
+				AND SECCION = 'Cultura'
+				AND activo = 1
+				order by id desc";
+	/*$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Cultura' AND activo = 1 ORDER BY id DESC";*/
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 	if($resultado)
 	{
@@ -224,8 +284,18 @@ function deportes()
 	$html = $this->load_page('app/views/default/modules/m.deportes.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
+	 $consulta =  "SELECT *
+				FROM tblnoticia
+				WHERE publicacion BETWEEN 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				AND
+				(SELECT CURDATE())
+				AND SECCION = 'Deporte'
+				AND activo = 1
+				order by id desc";
+	/*
 	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Deporte' AND activo = 1 ORDER BY id DESC";
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Deporte' AND activo = 1 ORDER BY id DESC";*/
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 	if($resultado)
 	{
@@ -246,8 +316,18 @@ function monitores()
 	$html = $this->load_page('app/views/default/modules/m.monitores.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
+	 $consulta =  "SELECT *
+				FROM tblnoticia
+				WHERE publicacion BETWEEN 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				AND
+				(SELECT CURDATE())
+				AND SECCION = 'Monitores'
+				AND activo = 1
+				order by id desc";
+	/*
 	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Monitores' AND activo = 1 ORDER BY id DESC";
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Monitores' AND activo = 1 ORDER BY id DESC"; */
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 	if($resultado)
 	{
@@ -267,8 +347,18 @@ function encuestas()
 	$html = $this->load_page('app/views/default/modules/m.encuestas.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
+	 $consulta =  "SELECT *
+				FROM tblnoticia
+				WHERE publicacion BETWEEN 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				AND
+				(SELECT CURDATE())
+				AND SECCION = 'Encuestas'
+				AND activo = 1
+				order by id desc";
+	/*
 	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Encuestas' AND activo = 1 ORDER BY id DESC";
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Encuestas' AND activo = 1 ORDER BY id DESC";*/
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 	if($resultado)
 	{
@@ -288,8 +378,17 @@ function videos()
 	$html = $this->load_page('app/views/default/modules/m.videos.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
-	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND (n.tipoarchivo = 'Video' OR n.tipoarchivo = 'Link') AND activo = 1 ORDER BY id DESC";
+	 $consulta =  "SELECT *
+				FROM tblnoticia
+				WHERE publicacion BETWEEN 
+				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
+				AND
+				(SELECT CURDATE())
+				AND SECCION = 'Video'
+				AND activo = 1
+				order by id desc";
+	/*$dateNow = date("Y-m-d");
+	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND (n.tipoarchivo = 'Video' OR n.tipoarchivo = 'Link') AND activo = 1 ORDER BY id DESC";*/
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 	if($resultado)
 	{
@@ -381,8 +480,14 @@ function videos()
 		return "No se ha publicado ninguna noticia por el momento ¡Gracias!";
 
  }
+
+ /*METODO QUE PASA UNA NOTICIA A OTRA PAGINA*/
  function noticia($idNoticia)
  {
+
+     $pagina=$this->load_template('');	/*titulo de la pagina */			
+	 $html = $this->load_page('app/views/default/modules/m.noticia.php');
+	 $pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 
 	$idNoticia = explode("-", $idNoticia);
 	$id = mysql_real_escape_string(strip_tags(stripslashes(trim($idNoticia[0]))));
@@ -393,9 +498,96 @@ function videos()
 	else
 		$datos = $resultado;
 
-	echo "<img class='slide-image' src='".$datos["direccionnoticia"]."' alt=''>";
+	
+
+
+         if($datos["seccion"] == "Articulos")
+			{
+			
+				$noticias .= "<div class='row'>
+							  <div class='container'>
+
+							   <div class='col-sm-2 col-md-2'> 
+   <img src='".$datos["direccionnoticia"]."'>	
+							   </div>
+								  <div class='col-sm-6 col-md-6'> 
+
+                               							  
+								  <h1>
+								      ".$datos["titulo"]."
+								  </h1>
+								  <h2>
+								  por: lemusa
+								  </h2>
+								  <p>
+								  ".$datos["contenidoNoticia"]."
+								   
+								  </p>
+								  </div>
+								  
+
+							   </div>
+							</div>
+	
+	
+	 ";
+			}
+			else if($datos["seccion"] == "Columnas")
+			{
+				$noticias .= "<div class='row'>
+							  <div class='container'>
+								  <div class='col-sm-6 col-md-6'> 
+
+                               							  
+								  <h1>
+								      ".$datos["titulo"]."
+								  </h1>
+								  <p>
+								  ".$datos["contenidoNoticia"]."
+								   
+								  </p>
+								  </div>
+								  
+
+							   </div>
+							</div>
+	
+	
+	 ";
+			}
+			else
+			{
+				$noticias .= "<div class='row'>
+							  <div class='container'>
+								  <div class='col-sm-6 col-md-6'> 
+
+                                <img src='".$datos["direccionnoticia"]."'>								  
+								  <h1>
+								      ".$datos["titulo"]."
+								  </h1>
+								  <p>
+								  ".$datos["contenidoNoticia"]."
+								   
+								  </p>
+								  </div>
+								  
+
+							   </div>
+							</div>
+	
+	
+	 ";
+			}
+
+	$pagina = $this->replace_contenidos('/\#NOTI\#/ms' ,$noticias, $pagina);
+	$this->view_page($pagina);
+	   
+
+
 	
  }
+
+ 
 
 	/* METODO QUE CARGA LAS PARTES PRINCIPALES DE LA PAGINA WEB
 	INPUT

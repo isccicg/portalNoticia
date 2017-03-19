@@ -3,7 +3,7 @@
 <title>SIGA COMUNICACIÓN</title>
 <!-- <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
 <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template"> -->
-
+<meta http-equiv=”Content-Type” content=”text/html; charset=iso-8859-2″>
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans|Raleway" rel="stylesheet">
 <link rel="stylesheet" href="app/views/default/efectos/css/flexslider.css">
 <link rel="stylesheet" href="app/views/default/efectos/css/bootstrap.css">

@@ -1,4 +1,5 @@
 <div class="row">
+HOLA MUNOD
 	<label><?php echo $datosNoticia['titulo'];?></label>
 	<img class="slide-image" src="<?php echo $datosNoticia['direccionnoticia'];?>" alt="">
 </div>

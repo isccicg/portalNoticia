@@ -87,17 +87,12 @@
     <tbody>
       <tr>
         <td>1</td>
-        <td>Anna</td>
-        <td>Pitt</td>
+        <td>En construcción</td>
+        <td>----</td>
        
       </tr>
 
-      <tr>
-        <td>1</td>
-        <td>Anna</td>
-        <td>Pitt</td>
-       
-      </tr>
+     
     </tbody>
   </table>
   </div>
