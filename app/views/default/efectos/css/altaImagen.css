@@ -22,3 +22,16 @@
 {
 	height: 190px;
 }
+
+p.contenidoNoticia
+{
+	font-family: serif;
+    font-size: 15px;
+    color: #585858;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height:15px;
+    white-space: pre-line;
+}

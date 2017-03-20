@@ -516,10 +516,8 @@ function videos()
 								  <h1>
 								      ".$datos["titulo"]."
 								  </h1>
-								  <h2>
-								  por: lemusa
-								  </h2>
-								  <p>
+								  
+								  <p class='contenidoNoticia'>
 								  ".$datos["contenidoNoticia"]."
 								   
 								  </p>
@@ -542,7 +540,7 @@ function videos()
 								  <h1>
 								      ".$datos["titulo"]."
 								  </h1>
-								  <p>
+								  <p class='contenidoNoticia'>
 								  ".$datos["contenidoNoticia"]."
 								   
 								  </p>
@@ -565,7 +563,7 @@ function videos()
 								  <h1>
 								      ".$datos["titulo"]."
 								  </h1>
-								  <p>
+								  <p class='contenidoNoticia'>
 								  ".$datos["contenidoNoticia"]."
 								   
 								  </p>
