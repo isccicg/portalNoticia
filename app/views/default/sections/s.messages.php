@@ -47,6 +47,7 @@ if($_POST["tipoModal"] == "altaNoticia")
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Ingresar datos de noticia</h4>
+                <h5 class="text-right"><a href="app/controller/formAltaNoticia.php?accion=salir">Salir</a></h5>
             </div>
             <form action="app/controller/formAltaNoticia.php?accion=altaNoticia" method="POST" enctype="multipart/form-data">
                 <div class="modal-body col-lg-12">
@@ -63,6 +64,7 @@ if($_POST["tipoModal"] == "altaNoticia")
                                 <option value="Columnas">Columnas</option>
                                 <option value="Monitores">Monitores</option>
                                 <option value="Encuestas">Encuestas</option>
+                                <option value="Economia">Economia</option>
                             </select>
                         </div>
                         <br><br>
@@ -104,7 +106,7 @@ if($_POST["tipoModal"] == "altaNoticia")
                         </div>
                         <br>
                         <div class="row">
-                            <textarea name="Datos[contenidoNoticia]" id="idContenidoNoticia" placeholder="Escribir contenido de noticia." class="form-control" style="resize:none;" required></textarea>
+                            <textarea name="Datos[contenidoNoticia]" id="idContenidoNoticia" placeholder="Escribir contenido de noticia." class="form-control" style="resize:none;height: 150px;" required></textarea>
                         </div>
                     </div>
                     <input type="file" name="Datos[noticia]" accept="image/jpeg,image/gif,image/png" id="file" style="display: none">

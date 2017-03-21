@@ -29,6 +29,11 @@ if(isset($_GET["accion"]))
 			$resultado = $noticia->cargarDatosNoticia($_POST["idNoticia"]);
 			echo json_encode($resultado);
 			break;
+		case "salir":
+			session_start();
+			session_destroy();
+			header("location:../../login.php");
+			break;
 		default:
 			header("location:../../index.php");
 			break;

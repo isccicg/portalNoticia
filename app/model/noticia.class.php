@@ -100,14 +100,31 @@ class noticia
 						break;
 					case 'Banner':
 						$bandera = 1;
-						if(isset($noticia["tmp_name"]["bannerSuperior"]))
+						$consulta = array();
+						if(isset($noticia["tmp_name"]["bannerSuperior"]) && $noticia["tmp_name"]["bannerSuperior"] != "")
+						{
 							move_uploaded_file($noticia["tmp_name"]["bannerSuperior"],"../banners/Superior.jpg");
-						if(isset($noticia["tmp_name"]["bannerInferior"]))
+							$consulta[] = "UPDATE tblbanners SET link = '".$datos["linkSuperior"]."' WHERE id = 1;";
+						}
+						if(isset($noticia["tmp_name"]["bannerInferior"]) && $noticia["tmp_name"]["bannerInferior"] != "")
+						{
 							move_uploaded_file($noticia["tmp_name"]["bannerInferior"],"../banners/Inferior.jpg");
-						if(isset($noticia["tmp_name"]["bannerDS"]))
+							$consulta[] = "UPDATE tblbanners SET link = '".$datos["linkInferior"]."' WHERE id = 2;";
+						}
+						if(isset($noticia["tmp_name"]["bannerDS"]) && $noticia["tmp_name"]["bannerDS"] != "")
+						{
 							move_uploaded_file($noticia["tmp_name"]["bannerDS"],"../banners/DSuperior.jpg");
-						if(isset($noticia["tmp_name"]["bannerDI"]))
+							$consulta[] = "UPDATE tblbanners SET link = '".$datos["linkDSuperior"]."' WHERE id = 3;";
+						}
+						if(isset($noticia["tmp_name"]["bannerDI"]) && $noticia["tmp_name"]["bannerDI"] != "")
+						{
 							move_uploaded_file($noticia["tmp_name"]["bannerDI"],"../banners/DInferior.jpg");
+							$consulta[] = "UPDATE tblbanners SET link = '".$datos["linkDInferior"]."' WHERE id = 4;";
+						}
+						foreach ($consulta as $value) 
+						{
+							mysql_query($value,$this->conexion) or die (mysql_error());;
+						}
 						break;
 					
 					default:

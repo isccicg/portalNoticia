@@ -183,7 +183,7 @@ $(document).on("click",".radioTipoArchivo",function()
             $("#idDescripcionNoticiaVideo").attr("disabled", "disabled");
             $("#idContenidoNoticia").attr("disabled", "disabled");
             
-            $(".agregarBanner").html("<label class='btn btn-default'><input type='checkbox' name='checkSuperior' value='Superior' id='idCheckSuperior'>Superior</label><label class='btn btn-default'><input type='checkbox' name='checkInferior' value='Inferior' id='idCheckInferior'>Inferior</label><label class='btn btn-default'><input type='checkbox' name='checkDerechoSuperior' value='derechoSuperior' id='idCheckDerechoSuperior'>Derecho Sup</label><label class='btn btn-default'><input type='checkbox' name='checkDerechoInferior' value='derechoInferior' id='idCheckDerechoInferior'>Derecho Inf</label>");
+            $(".agregarBanner").html("<label class='btn btn-default'><input type='checkbox' name='checkSuperior' value='Superior' id='idCheckSuperior'>Superior</label><label class='btn btn-default'><input type='checkbox' name='checkInferior' value='Inferior' id='idCheckInferior'>Inferior</label><label class='btn btn-default'><input type='checkbox' name='checkDerechoSuperior' value='derechoSuperior' id='idCheckDerechoSuperior'>Derecho Sup</label><label class='btn btn-default'><input type='checkbox' name='checkDerechoInferior' value='derechoInferior' id='idCheckDerechoInferior'>Derecho Inf</label><br><br>");
             break;
     }
 
@@ -249,20 +249,37 @@ $(document).on("change","#idCheckSuperior",function(e)
     {
         e.preventDefault();
         $("#fileSuperio").click();
+        if($("#fileSuperio").val() == "")
+            $(".agregarBanner").append("<div class='form-group text-center col-lg-12'><input type='text' name='Datos[linkSuperior]' placeholder='Link Superior' class='form-control' required></div>");
     }
 });
 $(document).on("change","#idCheckInferior",function(e)
 {
-    e.preventDefault();
-    $("#fileInferior").click();
+    if($(this).is(":checked")) 
+    {
+        e.preventDefault();
+        $("#fileInferior").click();
+        if($("#fileInferior").val() == "")
+            $(".agregarBanner").append("<div class='form-group text-center col-lg-12'><input type='text' name='Datos[linkInferior]' placeholder='Link Inferior' class='form-control' required></div>");
+    }
 });
 $(document).on("change","#idCheckDerechoSuperior",function(e)
 {
-    e.preventDefault();
-    $("#fileDS").click();
+    if($(this).is(":checked")) 
+    {
+        e.preventDefault();
+        $("#fileDS").click();
+        if($("#fileDS").val() == "")
+            $(".agregarBanner").append("<div class='form-group text-center col-lg-12'><input type='text' name='Datos[linkDSuperior]' placeholder='Link Derecho Sup' class='form-control' required></div>");
+    }
 });
 $(document).on("change","#idCheckDerechoInferior",function(e)
 {
-    e.preventDefault();
-    $("#fileDI").click();
+    if($(this).is(":checked")) 
+    {
+        e.preventDefault();
+        $("#fileDI").click();
+        if($("#fileDI").val() == "")
+            $(".agregarBanner").append("<div class='form-group text-center col-lg-12'><input type='text' name='Datos[linkDInferior]' placeholder='Link Derecho Inf' class='form-control' required></div>");
+    }
 });

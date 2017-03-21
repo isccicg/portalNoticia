@@ -501,7 +501,7 @@ function videos()
 	
 
 
-         if($datos["seccion"] == "Articulos")
+         if($datos["seccion"] == "Columnas")
 			{
 			
 				$noticias .= "<div class='row'>
@@ -530,7 +530,7 @@ function videos()
 	
 	 ";
 			}
-			else if($datos["seccion"] == "Columnas")
+			else if($datos["seccion"] == "Articulos")
 			{
 				$noticias .= "<div class='row'>
 							  <div class='container'>
