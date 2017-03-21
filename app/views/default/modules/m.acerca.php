@@ -34,7 +34,7 @@
     					<div class="about-right-boot">
 
     						<div class="about-right-wrapper">
-	    						<a href="#"><h3>Fundadores y colaboradores</h3></a>
+	    						<a href="#"><h3>Fundadores</h3></a>
 	    						<p>Lic. Paulina Lemus Hernández <br>
                                 Lic. Luis Eduardo Torres Lazcano   <br>
 Mtro. Eduardo Garduño Campa <br>

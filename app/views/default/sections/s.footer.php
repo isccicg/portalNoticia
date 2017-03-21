@@ -18,7 +18,8 @@
                             <div class="insta">
                                 <ul> 
                                    <a href="https://www.facebook.com/sigacomumicacion/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                   <a href="https://twitter.com/Sigacomunica"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                   <a href="https://twitter.com/Sigacomunica"><i class="fa fa-twitter" aria-hidden="true" style="padding:14px;"></i></a>
+                                   <a href=""><i class="fa fa-youtube" aria-hidden="true"></i></a>
 <br>
 <br>
                                    <a href="index.php?action=acerca"">Acerca de nosotros</a>
