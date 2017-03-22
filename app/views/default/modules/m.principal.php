@@ -63,7 +63,7 @@
     
 <div class="row">
       <div class="container">
-        <div class="col-sm-8 col-md-8">
+        <div class="col-sm-8 col-md-8" style="height: 1000px;overflow-y: scroll;">
             #NOTICIAS#    
        </div>
         <div class="col-sm-4 col-md-4">        

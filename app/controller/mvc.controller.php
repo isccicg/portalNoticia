@@ -384,7 +384,7 @@ function videos()
 				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
 				AND
 				(SELECT CURDATE())
-				AND SECCION = 'Video'
+				AND (tipoarchivo = 'Video' OR tipoarchivo = 'Link')
 				AND activo = 1
 				order by id desc";
 	/*$dateNow = date("Y-m-d");
