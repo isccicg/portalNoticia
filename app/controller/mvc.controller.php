@@ -35,14 +35,108 @@ $pagina=$this->load_template('');	/*titulo de la pagina */
  
 }
 
+/*function banner($id){
+	
+$consulta =  " SELECT link FROM tblbanners WHERE id =".$id;
+
+
+return $id
+} */
+
+
+function banner($id)
+{
+
+//$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND activo = 1 ORDER BY id DESC";
+
+//$id=1;
+  $consulta =  " SELECT link FROM tblbanners WHERE id ='".$id."'";
+//	$consulta =  "SELECT link FROM tblbanners WHERE id =".$id;
+
+	$resultado = mysql_query($consulta) or die (mysql_error());
+	if($resultado)
+		$valor = mysql_fetch_assoc($resultado);
+	else
+		$valor = $resultado;
+
+
+if($id=='1'){
+	return $noticias .= "
+								 <a href='".$valor["link"]."'>
+								
+
+								 <img class ='slide-image' src='app/banners/Superior.jpg'>
+
+								 </a>          
+	
+	
+	 ";
+
+}
+else if ($id=="2") {
+	return $noticias .= "
+								 <a href='".$valor["link"]."'>
+								 
+
+								 <img class ='slide-image' src='app/banners/Inferior.jpg'>
+
+								 </a>          
+	
+	
+	 ";
+	# code...
+}
+
+else if ($id=="3") {
+
+	return $noticias .= "
+								 <a href='".$valor["link"]."'>
+								 
+
+								 <img class ='slide-image' src='app/banners/DSuperior.jpg'>
+
+								 </a>          
+	
+	
+	 ";
+	# code...
+}
+else if ($id=="4") {
+
+	return $noticias .= "
+								 <a href='".$valor["link"]."'>
+
+								 <img class ='slide-image' src='app/banners/Inferior.jpg'>
+
+								 </a>          
+	
+	
+	 ";
+	# code...
+}
+
+
+      
+
+
+}
+
 
 
 function principal()
 {
+	//$banner=$this->banner();
+	//echo "Hola el link es".$banner;
+
+	//devolver_referencia();
+
+   // $banner=$this->banner();
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
 	$html = $this->load_page('app/views/default/modules/m.principal.php');
-	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
+	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);	 
+	//$pagina = $this->replace_banner('/\#BANNER\#/ms' ,$html , $banner);
 	$datos = array();
+
    	//$dateNow = date("Y-m-d");
 
 	/*$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND activo = 1 ORDER BY id DESC"; */
@@ -77,7 +171,17 @@ function principal()
 	} */ 
 	$noticias = $this->cargarNoticias($datos);
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
-	$this->view_page($pagina);
+
+/*habilitar cuando este la tabla arriba*/
+	/* $banner=$this->banner("1");
+	 $pagina = $this->replace_bannerS('/\#BANNERS\#/ms' ,$banner, $pagina); 
+	  $banner=$this->banner("2");
+	 $pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	  $banner=$this->banner("3");
+	 $pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
+	  $banner=$this->banner("4");
+	 $pagina = $this->replace_bannerI('/\#BANNERI\#/ms' ,$banner, $pagina); */
+	 $this->view_page($pagina);
 }
 
    /*1.- Modulo Politica */
@@ -504,13 +608,14 @@ function videos()
          if($datos["seccion"] == "Columnas")
 			{
 			
-				$noticias .= "<div class='row'>
+				$noticias .= "<div class='rows thumbnail'>
 							  <div class='container'>
 
 							   <div class='col-sm-2 col-md-2'> 
+							   <br>
    <img src='".$datos["direccionnoticia"]."'>	
 							   </div>
-								  <div class='col-sm-6 col-md-6'> 
+								  <div class='col-sm-4 col-md-4'> 
 
                                							  
 								  <h1>
@@ -532,7 +637,7 @@ function videos()
 			}
 			else if($datos["seccion"] == "Articulos")
 			{
-				$noticias .= "<div class='row'>
+				$noticias .= "<div class='row thumbnail'>
 							  <div class='container'>
 								  <div class='col-sm-6 col-md-6'> 
 
@@ -553,16 +658,44 @@ function videos()
 	
 	 ";
 			}
-			else
+
+			else if($datos["tipoarchivo"] == "Link")
 			{
-				$noticias .= "<div class='row'>
+				$noticias .= "<div class='row thumbnail'>
 							  <div class='container'>
 								  <div class='col-sm-6 col-md-6'> 
-
-                                <img src='".$datos["direccionnoticia"]."'>								  
-								  <h1>
+								   <h1>
 								      ".$datos["titulo"]."
 								  </h1>
+
+								  	<iframe class='embed-responsive-item' src='".$datos["direccionnoticia"]."?controls=0&showinfo=0' ></iframe>
+
+                               					  
+								 
+								  <p class='contenidoNoticia'>
+								  ".$datos["contenidoNoticia"]."
+								   
+								  </p>
+								  </div>
+								  
+
+							   </div>
+							</div>
+	
+	
+	 ";
+			}
+			else
+			{
+				$noticias .= "<div class='row thumbnail'>
+							  <div class='container'>
+								  <div class='col-sm-6 col-md-6'> 
+								   <h1>
+								      ".$datos["titulo"]."
+								  </h1>
+
+                                <img src='".$datos["direccionnoticia"]."'>								  
+								 
 								  <p class='contenidoNoticia'>
 								  ".$datos["contenidoNoticia"]."
 								   
@@ -652,6 +785,24 @@ function videos()
 
 
 	private function replace_contenidos($in='/\#NOTI\#/ms', $out,$pagina)
+	{
+		return preg_replace($in, $out, $pagina);	
+	}
+
+	private function replace_bannerS($in='/\#BANNERS\#/ms', $out,$pagina)
+	{
+		return preg_replace($in, $out, $pagina);	
+	}
+
+	private function replace_bannerDS($in='/\#BANNERDS\#/ms', $out,$pagina)
+	{
+		return preg_replace($in, $out, $pagina);	
+	}
+	private function replace_bannerDI($in='/\#BANNERDI\#/ms', $out,$pagina)
+	{
+		return preg_replace($in, $out, $pagina);	
+	}
+	private function replace_bannerI($in='/\#BANNERI\#/ms', $out,$pagina)
 	{
 		return preg_replace($in, $out, $pagina);	
 	}

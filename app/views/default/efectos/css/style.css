@@ -445,6 +445,7 @@ textarea:focus {
 #about .about-right {
 	position: relative;
 	padding: 0 80px 150px 80px;
+	background-color: white;
 }
 
 #about .about-right-heading h1 {

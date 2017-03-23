@@ -2,8 +2,9 @@
 <div class="row">
 
  <div class="col-md-12" align="center">
-    <img src="app/banners/Superior.jpg" alt="">
-        <!-- <img class="slide-image" src="http://placehold.it/750x90" alt=""> -->
+       <img class="slide-image" src="app/banners/Superior.jpg" alt="">
+
+       <!-- #BANNERS#-->
  </div>
  
 </div>
@@ -63,11 +64,11 @@
     
 <div class="row">
       <div class="container">
-        <div class="col-sm-8 col-md-8" style="height: 1000px;overflow-y: scroll;">
+        <div class="col-sm-8 col-md-8">
             #NOTICIAS#    
        </div>
         <div class="col-sm-4 col-md-4">        
-           <div class="row">                
+           <div class="row thumbnail">                
                     <div class="col-sm-12 col-md-12" align="center">        
                        <!-- <img class="slide-image" src="http://placehold.it/400x300" alt="">      -->
 
@@ -78,20 +79,55 @@
   <table class="table">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Hora</th>
-        <th>Noticia</th>
+      
+        <th>Sección</th>
+        <th>Visitas</th>
         
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>1</td>
+       
         <td>En construcción</td>
         <td>----</td>
        
       </tr>
-
+<tr>
+       
+        <td>En construcción</td>
+        <td>----</td>
+       
+      </tr>
+      <tr>
+       
+        <td>En construcción</td>
+        <td>----</td>
+       
+      </tr>
+      <tr>
+       
+        <td>En construcción</td>
+        <td>----</td>
+       
+      </tr>
+      <tr>
+       
+        <td>En construcción</td>
+        <td>----</td>
+       
+      </tr>
+      <tr>
+       
+        <td>En construcción</td>
+        <td>----</td>
+       
+      </tr>
+      <tr>
+       
+        <td>En construcción</td>
+        <td>----</td>
+       
+      </tr>
      
     </tbody>
   </table>
@@ -102,15 +138,18 @@
            </div>
 
            <div class="row">               
-                    <div class="col-sm-12 col-md-12" align="center">    
-                        <img class="slide-image" src="app/banners/DSuperior.jpg" alt="">
-                       <!-- <img class="slide-image" src="http://placehold.it/250x250" alt=""> -->
+                    <div class="col-sm-12 col-md-12" align="center"> 
+
+                <!--  #BANNERDS#-->
+                      <img class="slide-image" src="app/banners/DSuperior.jpg"> 
+                        <!--<img class="slide-image" src="http://placehold.it/250x250" alt=""> -->
                     </div>              
            </div> 
 
            <div class="row">               
                     <div class="col-sm-12 col-md-12" align="center">    
-                        <img class="slide-image" src="app/banners/DInferior.jpg" alt="">  
+                      <!-- #BANNERDI#-->
+                        <img class="slide-image" src="app/banners/DInferior.jpg" alt="">
                        <!-- <img class="slide-image" src="http://placehold.it/250x250" alt=""> -->
                     </div>              
            </div>            
@@ -124,7 +163,8 @@
 
 <div class="row">
  <div class="col-md-12" align="center">
-    <img class="slide-image" src="app/banners/Inferior.jpg" alt="">
+    <!--#BANNERI#-->
+   <img class="slide-image" src="app/banners/Inferior.jpg" alt="">
     <!-- <img class="slide-image" src="http://placehold.it/750x90" alt=""> -->
  </div>
 </div>
