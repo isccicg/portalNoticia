@@ -15,3 +15,8 @@
 <link rel="stylesheet" href="app/views/default/efectos/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.css">
 <!--<link rel="icon" type="image/png" href="app/views/default/efectos/images/favicon.png" />-->
+
+
+  <meta name="googlebot" content="NOODP">
+	<link rel="shortcut icon" href="/gallery/logotipomhp-ts1467761171.png" type="image/png" />
+	<meta name="google-site-verification" content="http://sigacomunicacion.com" />

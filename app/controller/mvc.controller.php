@@ -586,8 +586,23 @@ function videos()
  }
 
  /*METODO QUE PASA UNA NOTICIA A OTRA PAGINA*/
+
+
+ function dameURL(){
+$url="http://".$_SERVER['HTTP_HOST'].":".$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
+return $url;
+}
  function noticia($idNoticia)
  {
+
+//echo "".$url=$this->dameURL();
+
+
+
+
+
+
+
 
      $pagina=$this->load_template('');	/*titulo de la pagina */			
 	 $html = $this->load_page('app/views/default/modules/m.noticia.php');
@@ -626,6 +641,7 @@ function videos()
 								  ".$datos["contenidoNoticia"]."
 								   
 								  </p>
+								  <div class='fb-share-button' data-href='".$url=$this->dameURL()."'data-type='button_count'></div>
 								  </div>
 								  
 
@@ -649,6 +665,8 @@ function videos()
 								  ".$datos["contenidoNoticia"]."
 								   
 								  </p>
+
+								  <div class='fb-share-button' data-href='".$url=$this->dameURL()."'data-type='button_count'></div>
 								  </div>
 								  
 
@@ -676,6 +694,9 @@ function videos()
 								  ".$datos["contenidoNoticia"]."
 								   
 								  </p>
+								  <div class='fb-share-button' data-href='".$url=$this->dameURL()."'data-type='button_count'></div>
+             
+
 								  </div>
 								  
 
@@ -687,6 +708,8 @@ function videos()
 			}
 			else
 			{
+
+				
 				$noticias .= "<div class='row thumbnail'>
 							  <div class='container'>
 								  <div class='col-sm-6 col-md-6'> 
@@ -700,6 +723,7 @@ function videos()
 								  ".$datos["contenidoNoticia"]."
 								   
 								  </p>
+								  <div class='fb-share-button' data-href='".$url=$this->dameURL()."'data-type='button_count'></div>
 								  </div>
 								  
 
