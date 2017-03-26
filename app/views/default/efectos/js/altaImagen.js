@@ -283,3 +283,4 @@ $(document).on("change","#idCheckDerechoInferior",function(e)
             $(".agregarBanner").append("<div class='form-group text-center col-lg-12'><input type='text' name='Datos[linkDInferior]' placeholder='Link Derecho Inf' class='form-control' required></div>");
     }
 });
+$(".pagination").rPage();

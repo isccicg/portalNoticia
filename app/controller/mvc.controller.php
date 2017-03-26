@@ -123,7 +123,7 @@ else if ($id=="4") {
 
 
 
-function principal()
+function principal($page)
 {
 	//$banner=$this->banner();
 	//echo "Hola el link es".$banner;
@@ -136,40 +136,12 @@ function principal()
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);	 
 	//$pagina = $this->replace_banner('/\#BANNER\#/ms' ,$html , $banner);
 	$datos = array();
-
-   	//$dateNow = date("Y-m-d");
-
-	/*$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND activo = 1 ORDER BY id DESC"; */
-
-  /* $consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$elapsedDate."' AND activo = 1 ORDER BY id DESC"; */
-
-   $consulta =  "SELECT *
-				FROM tblnoticia
-				WHERE publicacion BETWEEN 
-				(SELECT DATE_ADD(CURDATE(), INTERVAL -3 DAY)) 
-				AND
-				(SELECT CURDATE())
-				AND activo = 1
-				order by id desc";
-
-
+	$maxNoticias = 8;
+	$inicioNoticia = ($page-1)*$maxNoticias;
+   	$consulta = "SELECT * FROM tblnoticia WHERE publicacion BETWEEN (SELECT DATE_ADD(CURDATE(), INTERVAL -3 DAY)) AND (SELECT CURDATE()) AND activo = 1 order by id desc";
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-	if($resultado)
-	{
-		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-		{
-			$datos[] = $datosNoticia;
-		}
-	}
-/*	if(count($datos) > 0)
-	{
-		foreach ($datos as $value) 
-		{
-			$noticias .= "<div class='thumbnail' style='width: 712px;height: 188px;'><div class='caption'><h4 class='pull-right'><img src='".$value["direccionnoticia"]."' alt='' style='width: 300px;height: 150px;'></h4><h4><a href='#'>".$value["titulo"]."</a></h4><p>".$value["descripcion"]."<a target='_blank' href='#'> Leer mas:</a></p></div></div>";
-			
-		}
-	} */ 
-	$noticias = $this->cargarNoticias($datos);
+	$totalNoticias = mysql_num_rows($resultado);
+	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page);
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
 
 /*habilitar cuando este la tabla arriba*/
@@ -185,14 +157,16 @@ function principal()
 }
 
    /*1.- Modulo Politica */
-function politica()
+function politica($page)
 {
+	$maxNoticias = 8;
+	$inicioNoticia = ($page-1)*$maxNoticias;
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
 	$html = $this->load_page('app/views/default/modules/m.politica.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
 
-  $consulta =  "SELECT *
+  	$consulta = "SELECT *
 				FROM tblnoticia
 				WHERE publicacion BETWEEN 
 				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
@@ -201,38 +175,26 @@ function politica()
 				AND SECCION = 'Politica'
 				AND activo = 1
 				order by id desc";
-
-
-
-   /*	$dateNow = date("Y-m-d");
-		$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Politica' AND activo = 1 ORDER BY id DESC"; */
-		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-		if($resultado)
-		{
-			while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-			{
-				$datos[] = $datosNoticia;
-			}
-		}
-	$noticias = $this->cargarNoticias($datos);
+	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+	$totalNoticias = mysql_num_rows($resultado);
+	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=politica");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
 	$this->view_page($pagina);
 }
 
    /*.-Modulo Economia  NUEVO*/
 
-function economia()
+function economia($page)
 {
-
-	
-
+	$maxNoticias = 8;
+	$inicioNoticia = ($page-1)*$maxNoticias;
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
 	$html = $this->load_page('app/views/default/modules/m.economia.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	//$this->view_page($pagina);
 	/* poner nuevo a economia nuevo modulo*/
 
- $consulta =  "SELECT *
+ 	$consulta = "SELECT *
 				FROM tblnoticia
 				WHERE publicacion BETWEEN 
 				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
@@ -241,26 +203,18 @@ function economia()
 				AND SECCION = 'Economia'
 				AND activo = 1
 				order by id desc";
-
-	/*$datos = array();
-   	$dateNow = date("Y-m-d");
-		$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Economia' AND activo = 1 ORDER BY id DESC"; */
-		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-		if($resultado)
-		{
-			while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-			{
-				$datos[] = $datosNoticia;
-			}
-		}
-	$noticias = $this->cargarNoticias($datos);
+	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+	$totalNoticias = mysql_num_rows($resultado);
+	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=economia");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
 	$this->view_page($pagina);
 }
 
    /*2.-Modulo Sociedad */
-function sociedad()
+function sociedad($page)
 {
+	$maxNoticias = 8;
+	$inicioNoticia = ($page-1)*$maxNoticias;
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
 	$html = $this->load_page('app/views/default/modules/m.sociedad.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
@@ -277,21 +231,17 @@ function sociedad()
 	/*$dateNow = date("Y-m-d");
 	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Sociedad' AND activo = 1 ORDER BY id DESC"; */
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-	if($resultado)
-	{
-		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-		{
-			$datos[] = $datosNoticia;
-		}
-	}
-	$noticias = $this->cargarNoticias($datos);
+	$totalNoticias = mysql_num_rows($resultado);
+	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=sociedad");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
 	$this->view_page($pagina);
 }
 
 /*3.1.-Modulo Articulos */
-function articulos()
+function articulos($page)
 {
+	$maxNoticias = 8;
+	$inicioNoticia = ($page-1)*$maxNoticias;
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
 	$html = $this->load_page('app/views/default/modules/m.articulos.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
@@ -308,20 +258,16 @@ function articulos()
 	/*$dateNow = date("Y-m-d");
 	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Articulos' AND activo = 1 ORDER BY id DESC";*/
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-	if($resultado)
-	{
-		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-		{
-			$datos[] = $datosNoticia;
-		}
-	}
-	$noticias = $this->cargarNoticias($datos);
+	$totalNoticias = mysql_num_rows($resultado);
+	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=articulos");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
 	$this->view_page($pagina);
 }
 /*3.2.-Modulo Columnas */
-function columnas()
+function columnas($page)
 {
+	$maxNoticias = 8;
+	$inicioNoticia = ($page-1)*$maxNoticias;
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
 	$html = $this->load_page('app/views/default/modules/m.columnas.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
@@ -338,21 +284,17 @@ function columnas()
 				order by id desc";
 	/*$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Columnas' AND activo = 1 ORDER BY id DESC"; */
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-	if($resultado)
-	{
-		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-		{
-			$datos[] = $datosNoticia;
-		}
-	}
-	$noticias = $this->cargarNoticias($datos);
+	$totalNoticias = mysql_num_rows($resultado);
+	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=columnas");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
 	$this->view_page($pagina);
 }
 
 /*4.-Modulo Cultura */
- function cultura()
+ function cultura($page)
 {
+	$maxNoticias = 8;
+	$inicioNoticia = ($page-1)*$maxNoticias;
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
 	$html = $this->load_page('app/views/default/modules/m.cultura.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
@@ -367,23 +309,18 @@ function columnas()
 				AND SECCION = 'Cultura'
 				AND activo = 1
 				order by id desc";
-	/*$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Cultura' AND activo = 1 ORDER BY id DESC";*/
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-	if($resultado)
-	{
-		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-		{
-			$datos[] = $datosNoticia;
-		}
-	}
-	$noticias = $this->cargarNoticias($datos);
+	$totalNoticias = mysql_num_rows($resultado);
+	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=cultura");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
 	$this->view_page($pagina);
 }
 
 /*5.-Modulo Deportes */
-function deportes()
+function deportes($page)
 {
+	$maxNoticias = 8;
+	$inicioNoticia = ($page-1)*$maxNoticias;
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
 	$html = $this->load_page('app/views/default/modules/m.deportes.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
@@ -397,25 +334,18 @@ function deportes()
 				AND SECCION = 'Deporte'
 				AND activo = 1
 				order by id desc";
-	/*
-	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Deporte' AND activo = 1 ORDER BY id DESC";*/
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-	if($resultado)
-	{
-		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-		{
-			$datos[] = $datosNoticia;
-		}
-	}
-	$noticias = $this->cargarNoticias($datos);
+	$totalNoticias = mysql_num_rows($resultado);
+	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=deportes");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
 	$this->view_page($pagina);
 }
 
  /*6.1-Modulo Monitores */
-function monitores()
+function monitores($page)
 {
+	$maxNoticias = 8;
+	$inicioNoticia = ($page-1)*$maxNoticias;
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
 	$html = $this->load_page('app/views/default/modules/m.monitores.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
@@ -429,29 +359,22 @@ function monitores()
 				AND SECCION = 'Monitores'
 				AND activo = 1
 				order by id desc";
-	/*
-	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Monitores' AND activo = 1 ORDER BY id DESC"; */
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-	if($resultado)
-	{
-		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-		{
-			$datos[] = $datosNoticia;
-		}
-	}
-	$noticias = $this->cargarNoticias($datos);
+	$totalNoticias = mysql_num_rows($resultado);
+	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=monitores");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
 	$this->view_page($pagina);
 }
  /*6.2-Modulo Encuestas */
-function encuestas()
+function encuestas($page)
 {
+	$maxNoticias = 8;
+	$inicioNoticia = ($page-1)*$maxNoticias;
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
 	$html = $this->load_page('app/views/default/modules/m.encuestas.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 	$datos = array();
-	 $consulta =  "SELECT *
+	$consulta =  "SELECT *
 				FROM tblnoticia
 				WHERE publicacion BETWEEN 
 				(SELECT DATE_ADD(CURDATE(), INTERVAL -7 DAY)) 
@@ -460,24 +383,17 @@ function encuestas()
 				AND SECCION = 'Encuestas'
 				AND activo = 1
 				order by id desc";
-	/*
-	$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND n.seccion = 'Encuestas' AND activo = 1 ORDER BY id DESC";*/
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-	if($resultado)
-	{
-		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-		{
-			$datos[] = $datosNoticia;
-		}
-	}
-	$noticias = $this->cargarNoticias($datos);
+	$totalNoticias = mysql_num_rows($resultado);
+	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=encuestas");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
 	$this->view_page($pagina);
 }
 /*7.-Modulo Videos */
-function videos()
+function videos($page)
 {
+	$maxNoticias = 8;
+	$inicioNoticia = ($page-1)*$maxNoticias;
 	$pagina=$this->load_template('');	/*titulo de la pagina */	
 	$html = $this->load_page('app/views/default/modules/m.videos.php');
 	$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
@@ -491,17 +407,9 @@ function videos()
 				AND (tipoarchivo = 'Video' OR tipoarchivo = 'Link')
 				AND activo = 1
 				order by id desc";
-	/*$dateNow = date("Y-m-d");
-	$consulta = "SELECT * FROM tblnoticia n WHERE n.publicacion = '".$dateNow."' AND (n.tipoarchivo = 'Video' OR n.tipoarchivo = 'Link') AND activo = 1 ORDER BY id DESC";*/
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
-	if($resultado)
-	{
-		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
-		{
-			$datos[] = $datosNoticia;
-		}
-	}
-	$noticias = $this->cargarNoticias($datos);
+	$totalNoticias = mysql_num_rows($resultado);
+	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=videos");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
 	$this->view_page($pagina);
 }
@@ -515,9 +423,21 @@ function videos()
 		$pagina = $this->replace_content('/\#CONTENIDO\#/ms' ,$html , $pagina);
 		$this->view_page($pagina);
    }
- function cargarNoticias($datos)
+ function cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,$link)
  {
+ 	$consulta .= " LIMIT ".$inicioNoticia.",".$maxNoticias;
+ 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+ 	if($resultado)
+	{
+		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+		{
+			$datos[] = $datosNoticia;
+		}
+	}
  	session_start();
+ 	$noticias = "";
+ 	$htmlPagination = "<nav aria-label='Page navigation example'><ul class='pagination justify-content-end'>";
+ 	$htmlPagination .= ($page > 1) ? "<li class='pagination-prev'><a href='index.php?page=".($page-1).$link."'>&laquo;</a></li>": "";
  	$clave = "STQzba1mggNz";
  	if(count($datos) > 0)
 	{
@@ -578,7 +498,17 @@ function videos()
 			}
 			
 		}
-		return $noticias;
+		if($totalNoticias >  0)
+		{
+			$numPage = ceil($totalNoticias/$maxNoticias);
+			for($i = 1 ; $i <= $numPage ; $i++)
+			{
+				$classActive = ($page == $i) ? "active":"";
+				$htmlPagination .= "<li class='".$classActive."'><a href='index.php?page=".$i.$link."'>".$i."</a></li>"; 
+			}
+		}
+		$htmlPagination .= ($page < $numPage) ? "<li class='pagination-nex'><a href='index.php?page=".($page+1).$link."'>&raquo;</a></li></ul></nav>":"";
+		return $noticias.$htmlPagination;
 	}
 	else
 		return "No se ha publicado ninguna noticia por el momento ¡Gracias!";

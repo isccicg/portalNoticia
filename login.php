@@ -69,7 +69,7 @@ else
 	}
 	else //Si no existe GET o POST -> muestra la pagina principal
 	{	
-		$mvc->principal();
+		$mvc->principal(isset($_GET["page"]) ? $_GET["page"]: 1);
 	}
 
 	
