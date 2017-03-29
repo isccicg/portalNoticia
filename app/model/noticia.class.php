@@ -153,7 +153,7 @@ class noticia
 	{
 		$id = mysql_real_escape_string(strip_tags(stripslashes(trim($id))));
 		$consulta = "UPDATE tblnoticia n SET n.activo = 0 WHERE id  = ".$id;
-		$resultado = mysql_query($consulta) or die (mysql_error());
+		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 		if($resultado)
 			return true;
 		else
@@ -163,13 +163,28 @@ class noticia
 	{
 		$id = mysql_real_escape_string(strip_tags(stripslashes(trim($id))));
 		$consulta = "SELECT * FROM tblnoticia n WHERE n.id = ".$id;
-		$resultado = mysql_query($consulta) or die (mysql_error());
+		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 		if($resultado)
 			$datos = mysql_fetch_assoc($resultado);
 		else
 			$datos = $resultado;
 
 		return $datos;
+	}
+	public function modNoticia($datos)
+	{
+		$id = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["idNoticia"]))));
+		$seccion = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["cmbSeccion"]))));
+		$tituloNoticia = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["tituloNoticia"]))));
+		$descripcionNoticia = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["descripcionNoticia"]))));
+		$contenidoNoticia = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["contenidoNoticia"]))));
+		$consulta = "UPDATE tblnoticia tn SET seccion = '".$seccion."', titulo = '".$tituloNoticia."', descripcion = '".$descripcionNoticia."', contenidoNoticia = '".$contenidoNoticia."' WHERE id = ".$id;
+		$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
+		if($resultado)
+			$res = true;
+		else
+			$res = false;
+		return $res;
 	}
 }
 ?>

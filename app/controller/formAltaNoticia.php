@@ -34,6 +34,12 @@ if(isset($_GET["accion"]))
 			session_destroy();
 			header("location:../../login.php");
 			break;
+		case 'modNoticia':
+			require_once("../model/noticia.class.php");
+			$noticia = new noticia();
+			$resultado = $noticia->modNoticia($_POST["Datos"]);
+			header("location:../../index.php");
+			break;
 		default:
 			header("location:../../index.php");
 			break;
