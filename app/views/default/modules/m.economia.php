@@ -18,15 +18,15 @@
            
            <div class="row">               
                     <div class="col-sm-12 col-md-12" align="center">    
-                       
-                      <img class="slide-image" src="app/banners/DSuperior.jpg" alt="">
+                     
+                     #BANNERDS#
                     </div>              
            </div> 
 
            <div class="row">               
                     <div class="col-sm-12 col-md-12" align="center">    
                       
-                          <img class="slide-image" src="app/banners/DInferior.jpg" alt="">  
+                          #BANNERDI#
                     </div>              
            </div>            
         </div>

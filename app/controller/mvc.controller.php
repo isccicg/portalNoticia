@@ -78,7 +78,7 @@ else if ($id=="2") {
 								 <a href='".$valor["link"]."'>
 								 
 
-								 <img class ='slide-image' src='app/banners/Inferior.jpg'>
+								 <img class ='slide-image' src='app/banners/DInferior.jpg'>
 
 								 </a>          
 	
@@ -145,14 +145,14 @@ function principal($page)
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
 
 /*habilitar cuando este la tabla arriba*/
-	/* $banner=$this->banner("1");
+	 $banner=$this->banner("1");
 	 $pagina = $this->replace_bannerS('/\#BANNERS\#/ms' ,$banner, $pagina); 
-	  $banner=$this->banner("2");
+     $banner=$this->banner("2");
 	 $pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
 	  $banner=$this->banner("3");
 	 $pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
 	  $banner=$this->banner("4");
-	 $pagina = $this->replace_bannerI('/\#BANNERI\#/ms' ,$banner, $pagina); */
+	 $pagina = $this->replace_bannerI('/\#BANNERI\#/ms' ,$banner, $pagina); 
 	 $this->view_page($pagina);
 }
 
@@ -179,6 +179,14 @@ function politica($page)
 	$totalNoticias = mysql_num_rows($resultado);
 	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=politica");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
+
+	 
+     $banner=$this->banner("2");
+	 $pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	  $banner=$this->banner("3");
+	 $pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
+	
+
 	$this->view_page($pagina);
 }
 
@@ -207,6 +215,12 @@ function economia($page)
 	$totalNoticias = mysql_num_rows($resultado);
 	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=economia");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina); 
+
+	$banner=$this->banner("2");
+	$pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	$banner=$this->banner("3");
+	$pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
+
 	$this->view_page($pagina);
 }
 
@@ -234,6 +248,10 @@ function sociedad($page)
 	$totalNoticias = mysql_num_rows($resultado);
 	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=sociedad");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$banner=$this->banner("2");
+	$pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	$banner=$this->banner("3");
+	$pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
 	$this->view_page($pagina);
 }
 
@@ -261,6 +279,10 @@ function articulos($page)
 	$totalNoticias = mysql_num_rows($resultado);
 	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=articulos");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$banner=$this->banner("2");
+	$pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	$banner=$this->banner("3");
+	$pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
 	$this->view_page($pagina);
 }
 /*3.2.-Modulo Columnas */
@@ -287,6 +309,10 @@ function columnas($page)
 	$totalNoticias = mysql_num_rows($resultado);
 	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=columnas");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$banner=$this->banner("2");
+	$pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	$banner=$this->banner("3");
+	$pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
 	$this->view_page($pagina);
 }
 
@@ -313,6 +339,10 @@ function columnas($page)
 	$totalNoticias = mysql_num_rows($resultado);
 	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=cultura");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$banner=$this->banner("2");
+	$pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	$banner=$this->banner("3");
+	$pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
 	$this->view_page($pagina);
 }
 
@@ -338,6 +368,10 @@ function deportes($page)
 	$totalNoticias = mysql_num_rows($resultado);
 	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=deportes");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$banner=$this->banner("2");
+	$pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	$banner=$this->banner("3");
+	$pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
 	$this->view_page($pagina);
 }
 
@@ -363,6 +397,10 @@ function monitores($page)
 	$totalNoticias = mysql_num_rows($resultado);
 	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=monitores");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$banner=$this->banner("2");
+	$pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	$banner=$this->banner("3");
+	$pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
 	$this->view_page($pagina);
 }
  /*6.2-Modulo Encuestas */
@@ -387,6 +425,10 @@ function encuestas($page)
 	$totalNoticias = mysql_num_rows($resultado);
 	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=encuestas");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$banner=$this->banner("2");
+	$pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	$banner=$this->banner("3");
+	$pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
 	$this->view_page($pagina);
 }
 /*7.-Modulo Videos */
@@ -411,6 +453,10 @@ function videos($page)
 	$totalNoticias = mysql_num_rows($resultado);
 	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page,"&action=videos");
 	$pagina = $this->replace_contenido('/\#NOTICIAS\#/ms' ,$noticias, $pagina);
+	$banner=$this->banner("2");
+	$pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	$banner=$this->banner("3");
+	$pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
 	$this->view_page($pagina);
 }
 
@@ -665,6 +711,10 @@ return $url;
 			}
 
 	$pagina = $this->replace_contenidos('/\#NOTI\#/ms' ,$noticias, $pagina);
+	$banner=$this->banner("2");
+	$pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
+	$banner=$this->banner("3");
+	$pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
 	$this->view_page($pagina);
 	   
 
