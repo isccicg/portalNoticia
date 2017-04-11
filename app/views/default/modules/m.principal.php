@@ -75,7 +75,9 @@
                                                                                         
   <div class="table-responsive" style="background-color: #fff">          
   <table class="table">
-    <thead>
+
+
+  <thead>
       <tr>
       
         <th>Sección</th>
@@ -83,49 +85,11 @@
         
       </tr>
     </thead>
+    
     <tbody>
-      <tr>
-       
-        <td>En construcción</td>
-        <td>----</td>
-       
-      </tr>
-<tr>
-       
-        <td>En construcción</td>
-        <td>----</td>
-       
-      </tr>
-      <tr>
-       
-        <td>En construcción</td>
-        <td>----</td>
-       
-      </tr>
-      <tr>
-       
-        <td>En construcción</td>
-        <td>----</td>
-       
-      </tr>
-      <tr>
-       
-        <td>En construcción</td>
-        <td>----</td>
-       
-      </tr>
-      <tr>
-       
-        <td>En construcción</td>
-        <td>----</td>
-       
-      </tr>
-      <tr>
-       
-        <td>En construcción</td>
-        <td>----</td>
-       
-      </tr>
+      
+     #LOMASVISTO#
+   
      
     </tbody>
   </table>

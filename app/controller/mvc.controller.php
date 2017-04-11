@@ -44,6 +44,7 @@ return $id
 } */
 
 
+
 function banner($id)
 {
 
@@ -153,6 +154,18 @@ function principal($page)
 	 $pagina = $this->replace_bannerDI('/\#BANNERDI\#/ms' ,$banner, $pagina);
 	  $banner=$this->banner("4");
 	 $pagina = $this->replace_bannerI('/\#BANNERI\#/ms' ,$banner, $pagina); 
+
+    // $masVisto=$this->masVisto();
+//select nombreNoticia,count(*) from masvisto group by nombreNoticia order by count(*) desc limit 7;
+// select seccion,count(*) from tblnoticia group by seccion order by count(*) desc limit 7;
+
+     $masVisto = $this->masVisto("SELECT  seccion,count(*)
+				FROM tblnoticia
+				group by seccion
+				order by count(*) desc limit 7");
+     $pagina = $this->replace_loMasVisto('/\#LOMASVISTO\#/ms' ,$masVisto, $pagina); 
+
+
 	 $this->view_page($pagina);
 }
 
@@ -561,6 +574,64 @@ function videos($page)
 
  }
 
+/**/
+
+
+function masVisto($consulta)
+ {
+ 	##$consulta .= " LIMIT ".$inicioNoticia.",".$maxNoticias;
+ 	//echo "".$consulta;
+ 	$resultado = mysql_query($consulta) or die (mysql_error());
+ 	if($resultado)
+	{
+		while ($datosNoticia = mysql_fetch_assoc($resultado)) 
+		{
+			$datos[] = $datosNoticia;
+		}
+	}
+ 	session_start();
+ 	$noticias = "";
+ 	
+ 	$clave = "STQzba1mggNz";
+ 	if(count($datos) > 0)
+	{
+		foreach ($datos as $value) 
+		{
+			
+			
+
+            
+			    
+
+
+
+				$noticias .= "<tr>
+							
+					  		
+						   <td> ".$value["seccion"]." </td>
+						   <td> ".$value["count(*)"]." </td>
+						  	   
+						</tr>";
+			
+			
+		
+			
+		}
+		
+		return $noticias;
+	}
+	else
+		return "No se ha publicado ¡Gracias!";
+
+ }
+
+
+/**/
+
+
+
+
+
  /*METODO QUE PASA UNA NOTICIA A OTRA PAGINA*/
 
 
@@ -574,9 +645,8 @@ return $url;
 //echo "".$url=$this->dameURL();
 
 
-
-
-
+                    
+                   
 
 
 
@@ -594,6 +664,11 @@ return $url;
 		$datos = $resultado;
 
 	
+                  /* $tituloNoticia = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["titulo"]))));
+			        $linkNoticia = mysql_real_escape_string(strip_tags(stripslashes(trim($url=$this->dameURL()))));			     
+					$consulta2 = "INSERT INTO masVisto(nombreNoticia,link) VALUES('".$tituloNoticia."','".$linkNoticia.");"; 
+					mysql_query($consulta2) or die (mysql_error());   */
+
 
 
          if($datos["seccion"] == "Columnas")
@@ -710,6 +785,10 @@ return $url;
 	 ";
 			}
 
+
+			     
+
+
 	$pagina = $this->replace_contenidos('/\#NOTI\#/ms' ,$noticias, $pagina);
 	$banner=$this->banner("2");
 	$pagina = $this->replace_bannerDS('/\#BANNERDS\#/ms' ,$banner, $pagina);
@@ -811,5 +890,10 @@ return $url;
 		return preg_replace($in, $out, $pagina);	
 	}
 	
+	private function replace_loMasVisto($in='/\#LOMASVISTO\#/ms', $out,$pagina)
+	{
+		return preg_replace($in, $out, $pagina);	
+	}
+
 }
 ?>
