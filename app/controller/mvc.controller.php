@@ -663,14 +663,18 @@ return $url;
 	else
 		$datos = $resultado;
 
-	
-                  /* $tituloNoticia = mysql_real_escape_string(strip_tags(stripslashes(trim($datos["titulo"]))));
-			        $linkNoticia = mysql_real_escape_string(strip_tags(stripslashes(trim($url=$this->dameURL()))));			     
-					$consulta2 = "INSERT INTO masVisto(nombreNoticia,link) VALUES('".$tituloNoticia."','".$linkNoticia.");"; 
-					mysql_query($consulta2) or die (mysql_error());   */
-
-
-
+	$consulta = "SELECT id_noticia FROM tblmasvisto WHERE id_noticia = ".$datos["id"]." AND fecha = '".date("Y-m-d")."';";
+	$resultado = mysql_query($consulta) or die (mysql_error());
+	if($resultado)
+	{
+		if(mysql_num_rows($resultado) > 0)
+			$consulta = "UPDATE tblmasvisto SET visto = visto + 1 WHERE id_noticia = ".$datos["id"]." AND fecha = '".date("Y-m-d")."';";
+		else
+			$consulta = "INSERT INTO tblmasvisto(id_noticia,visto,fecha) VALUES (".$datos["id"].",1,'".date("Y-m-d")."');";
+		mysql_free_result($resultado);
+		mysql_query($consulta) or die (mysql_error());
+	}
+                  
          if($datos["seccion"] == "Columnas")
 			{
 			
