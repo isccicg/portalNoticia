@@ -139,7 +139,7 @@ function principal($page)
 	$datos = array();
 	$maxNoticias = 8;
 	$inicioNoticia = ($page-1)*$maxNoticias;
-   	$consulta = "SELECT * FROM tblnoticia WHERE publicacion BETWEEN (SELECT DATE_ADD(CURDATE(), INTERVAL -3 DAY)) AND (SELECT CURDATE()) AND activo = 1 order by id desc";
+   	$consulta = "SELECT * FROM tblnoticia WHERE publicacion BETWEEN (SELECT DATE_ADD(CURDATE(), INTERVAL -4 DAY)) AND (SELECT CURDATE()) AND activo = 1 order by id desc";
 	$resultado = mysql_query($consulta,$this->conexion) or die (mysql_error());
 	$totalNoticias = mysql_num_rows($resultado);
 	$noticias = $this->cargarNoticias($consulta,$totalNoticias,$maxNoticias,$inicioNoticia,$page);
@@ -159,10 +159,18 @@ function principal($page)
 //select nombreNoticia,count(*) from masvisto group by nombreNoticia order by count(*) desc limit 7;
 // select seccion,count(*) from tblnoticia group by seccion order by count(*) desc limit 7;
 
-     $masVisto = $this->masVisto("SELECT  seccion,count(*)
-				FROM tblnoticia
-				group by seccion
-				order by count(*) desc limit 7");
+//	 select a.id,a.titulo,b.id_noticia from tblnoticia a,tblmasvisto b where b.id_noticia=a.id order by b.visto desc;
+
+
+     $masVisto = $this->masVisto("
+
+
+     	SELECT  a.id,a.titulo,b.visto
+				FROM tblnoticia a,tblmasvisto b
+				where b.id_noticia=a.id
+				order by b.visto desc limit 7");
+
+
      $pagina = $this->replace_loMasVisto('/\#LOMASVISTO\#/ms' ,$masVisto, $pagina); 
 
 
@@ -608,8 +616,9 @@ function masVisto($consulta)
 				$noticias .= "<tr>
 							
 					  		
-						   <td> ".$value["seccion"]." </td>
-						   <td> ".$value["count(*)"]." </td>
+						   <td> <a href='index.php?action=noticia&noticia=".md5($clave.$value["id"])."-".$value["titulo"]."'>".$value["titulo"]."</a> </td>
+						   <td> ".$value["visto"]." </td>
+
 						  	   
 						</tr>";
 			
