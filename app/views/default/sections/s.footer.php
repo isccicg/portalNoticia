@@ -22,7 +22,7 @@
                                    <a href="https://www.youtube.com/channel/UCtG2Xl4WC5ViLHq58U4BIWw"><i class="fa fa-youtube" aria-hidden="true"></i></a>
 <br>
 <br>
-                                   <a href="index.php?action=acerca"">Acerca de nosotros</a>
+                                 <!--  <a href="index.php?action=acerca">Acerca de nosotros</a>-->
                                 </ul>
                             </div>
                         </div>

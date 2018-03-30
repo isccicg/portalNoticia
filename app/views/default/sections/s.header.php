@@ -4,9 +4,15 @@
       <div class="container">
       <div class="row">
 
-                <div class="col-md-12" align="center">
-                 <img src="app/views/default/efectos/images/logo.png">
-</div>
+                <div class="col-md-6" align="center">
+                <!-- <img src="app/views/default/efectos/images/logo.png"> -->
+                 <img src="app/views/default/efectos/images/siga.jpg" width="250px" height="250px">
+                </div>
+                <div class="col-md-6" align="center">
+               
+               
+                </div>
+
         
       </div>
 
@@ -75,6 +81,7 @@
                             </ul>
                         </li>
                         <li><a href="index.php?action=videos">Videos</a></li>
+                        <li><a href="index.php?action=acerca">Acerca de Nosotros</a></li>
             </ul>
           </div> 
         </div>
